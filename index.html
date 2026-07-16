@@ -1010,16 +1010,27 @@
   });
 
   // ── SCROLL REVEAL ──
+  // Safety-critical: these elements are hidden (opacity:0) until revealed, so any
+  // failure here would blank the page. Multiple fallbacks guarantee that can't happen.
   const reveals = document.querySelectorAll('.reveal');
+  const showAll = () => reveals.forEach(el => el.classList.add('visible'));
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
     }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
     reveals.forEach(el => observer.observe(el));
+
+    // Failsafe: if the observer never fires (broken/odd mobile browser), reveal
+    // everything rather than leave the visitor staring at a blank page.
+    setTimeout(() => {
+      if (document.querySelectorAll('.reveal.visible').length === 0) showAll();
+    }, 3000);
   } else {
-    // Old browser: show everything rather than hide it.
-    reveals.forEach(el => el.classList.add('visible'));
+    showAll(); // Old browser: show everything rather than hide it.
   }
+  // Last resort: never leave content hidden if something threw before this point.
+  window.addEventListener('error', showAll);
 
   // ── STICKY PHONE HIDE ON CONTACT ──
   const contactSection = document.getElementById('contact');
