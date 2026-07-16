@@ -336,9 +336,15 @@
     .qm-success p { font-size: 0.92rem; color: var(--muted); font-weight: 300; }
     .qm-note { font-size: 0.75rem; color: #aaa; text-align: center; margin-top: 1rem; font-weight: 300; }
 
-    /* ── SCROLL REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* ── SCROLL REVEAL ──
+       Fail-safe: content is visible by default. The hidden/animated state is only
+       applied when JS is running (html.js), so a JS error can never leave the page blank. */
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .js .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -373,6 +379,12 @@
 </head>
 <body>
 
+<script>
+  /* Set before paint so reveal animations work, but if this script never runs
+     the page still renders fully visible (see .reveal in CSS). */
+  document.documentElement.className += ' js';
+</script>
+
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-track">
@@ -390,7 +402,7 @@
 <!-- NAV -->
 <nav id="mainNav">
   <a href="#home" class="nav-brand">
-    <img src="images/logo.png" alt="Firehouse Shine logo" class="nav-logo-img" />
+    <img src="images/logo.png" alt="Firehouse Shine logo" class="nav-logo-img"  width="500" height="500" />
     <div class="nav-brand-text">Firehouse Shine<span>Professional Exterior Cleaning</span></div>
   </a>
   <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
@@ -603,7 +615,7 @@
     </div>
     <div class="about-visual reveal" style="transition-delay:0.15s">
       <div class="about-photo-frame">
-        <img src="images/interior-rear.jpg" alt="Detailed clean interior rear seats by Firehouse Shine" />
+        <img src="images/interior-rear.jpg" alt="Detailed clean interior rear seats by Firehouse Shine"  width="1400" height="1866" />
       </div>
       <div class="about-photo-tag">Detailed To The Corner</div>
     </div>
@@ -691,8 +703,8 @@
     <div class="ba-monitor">
       <div class="ba-corner tl"></div><div class="ba-corner tr"></div><div class="ba-corner bl"></div><div class="ba-corner br"></div>
       <div class="ba-frame" id="baFrame">
-        <img src="images/duct-after.jpg" alt="Cleared dryer vent duct after Firehouse Shine cleaning" class="ba-img ba-after" id="baAfterImg" />
-        <img src="images/duct-before.jpg" alt="Lint-clogged dryer vent before Firehouse Shine cleaning" class="ba-img ba-before" id="baBeforeImg" />
+        <img src="images/duct-after.jpg" alt="Cleared dryer vent duct after Firehouse Shine cleaning" class="ba-img ba-after" id="baAfterImg"  width="1200" height="1600" />
+        <img src="images/duct-before.jpg" alt="Lint-clogged dryer vent before Firehouse Shine cleaning" class="ba-img ba-before" id="baBeforeImg"  width="1200" height="900" />
         <div class="ba-divider"><div class="ba-handle">↔</div></div>
         <span class="ba-tag ba-tag-before">Before</span>
         <span class="ba-tag ba-tag-after">After</span>
@@ -755,19 +767,19 @@
   </div>
   <div class="gallery-masonry">
     <div class="gallery-item reveal" data-img="images/traverse-clean.jpg">
-      <img src="images/traverse-clean.jpg" alt="Fully detailed white SUV exterior" loading="lazy" />
+      <img src="images/traverse-clean.jpg" alt="Fully detailed white SUV exterior" loading="lazy" width="1800" height="1350" />
       <div class="gallery-overlay"><span>Showroom Shine</span></div>
     </div>
     <div class="gallery-item reveal" data-img="images/action-shot.jpg" style="transition-delay:0.05s">
-      <img src="images/action-shot.jpg" alt="Firehouse Shine mobile detailing setup in the driveway" loading="lazy" />
+      <img src="images/action-shot.jpg" alt="Firehouse Shine mobile detailing setup in the driveway" loading="lazy" width="1200" height="2134" />
       <div class="gallery-overlay"><span>Mobile, On Site</span></div>
     </div>
     <div class="gallery-item reveal" data-img="images/interior-mats.jpg" style="transition-delay:0.1s">
-      <img src="images/interior-mats.jpg" alt="Spotless vacuumed floor mats and interior" loading="lazy" />
+      <img src="images/interior-mats.jpg" alt="Spotless vacuumed floor mats and interior" loading="lazy" width="1400" height="1866" />
       <div class="gallery-overlay"><span>Spotless Interior</span></div>
     </div>
     <div class="gallery-item reveal" data-img="images/interior-rear.jpg" style="transition-delay:0.15s">
-      <img src="images/interior-rear.jpg" alt="Detailed rear seats and door panels" loading="lazy" />
+      <img src="images/interior-rear.jpg" alt="Detailed rear seats and door panels" loading="lazy" width="1400" height="1866" />
       <div class="gallery-overlay"><span>Every Seat, Every Corner</span></div>
     </div>
   </div>
@@ -846,7 +858,7 @@
   <div class="footer-grid">
     <div>
       <div class="footer-brand">
-        <img src="images/logo.png" alt="Firehouse Shine logo" class="footer-logo-img" />
+        <img src="images/logo.png" alt="Firehouse Shine logo" class="footer-logo-img"  width="500" height="500" />
         <div class="footer-brand-name">Firehouse Shine<span>Spartanburg, SC</span></div>
       </div>
       <p class="footer-tagline">Firefighter &amp; veteran owned mobile cleaning. Clean spaces. Healthy places. Safer families.</p>
@@ -999,10 +1011,15 @@
 
   // ── SCROLL REVEAL ──
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+    reveals.forEach(el => observer.observe(el));
+  } else {
+    // Old browser: show everything rather than hide it.
+    reveals.forEach(el => el.classList.add('visible'));
+  }
 
   // ── STICKY PHONE HIDE ON CONTACT ──
   const contactSection = document.getElementById('contact');
