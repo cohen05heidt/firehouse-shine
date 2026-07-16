@@ -182,7 +182,8 @@
     .ba-corner { position: absolute; width: 12px; height: 12px; background: var(--red); border-radius: 50%; z-index: 4; }
     .ba-corner.tl { top: 5px; left: 5px; } .ba-corner.tr { top: 5px; right: 5px; }
     .ba-corner.bl { bottom: 5px; left: 5px; } .ba-corner.br { bottom: 5px; right: 5px; }
-    .ba-frame { --pos: 50%; position: relative; overflow: hidden; aspect-ratio: 1/1; touch-action: pan-y; background: #050505; }
+    /* touch-action: pan-y => vertical swipes still scroll the page, horizontal drags are ours */
+    .ba-frame { --pos: 50%; position: relative; overflow: hidden; aspect-ratio: 1/1; touch-action: pan-y; background: #050505; cursor: ew-resize; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
     .ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; -webkit-user-select: none; user-select: none; pointer-events: none; background: #050505; }
     .ba-before { clip-path: polygon(0 0, var(--pos) 0, var(--pos) 100%, 0 100%); }
     .ba-divider { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; background: var(--red); transform: translateX(-50%); z-index: 3; pointer-events: none; }
@@ -190,9 +191,12 @@
     .ba-tag { position: absolute; top: 0.8rem; z-index: 3; pointer-events: none; background: rgba(11,12,13,0.82); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.8rem; }
     .ba-tag-before { left: 0.8rem; border-left: 3px solid var(--ember-o); }
     .ba-tag-after { right: 0.8rem; border-right: 3px solid var(--red); }
-    .ba-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; -webkit-appearance: none; appearance: none; background: transparent; cursor: ew-resize; z-index: 5; }
+    /* Kept for keyboard/AT users (arrow keys) only. Dragging is handled by pointer
+       events on .ba-frame — a native range thumb is undraggable on touch. */
+    .ba-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; -webkit-appearance: none; appearance: none; background: transparent; z-index: 5; opacity: 0; pointer-events: none; }
     .ba-range::-webkit-slider-thumb { -webkit-appearance: none; width: 1px; height: 1px; }
     .ba-range::-moz-range-thumb { width: 1px; height: 1px; border: none; background: transparent; }
+    .ba-frame:has(.ba-range:focus-visible) .ba-handle { outline: 3px solid var(--ember-y); outline-offset: 3px; }
     .ba-caption { text-align: center; margin-top: 1.3rem; }
     .ba-caption strong { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 1.15rem; color: var(--ink); display: block; margin-bottom: 0.3rem; }
     .ba-caption span { font-size: 0.85rem; color: var(--muted); }
@@ -1104,7 +1108,42 @@
     }
   };
 
-  function updateBaPos(v) { baFrame.style.setProperty('--pos', v + '%'); }
+  function updateBaPos(v) {
+    v = Math.max(0, Math.min(100, Number(v) || 0));
+    baFrame.style.setProperty('--pos', v + '%');
+    if (Number(baRange.value) !== v) baRange.value = v;
+  }
+
+  // Drag via pointer events so it works on touch, pen and mouse alike.
+  // (The native range input can only be dragged by grabbing its thumb, which is
+  //  impossible on a phone — that's why the slider felt dead on mobile.)
+  (function enableBaDrag() {
+    var dragging = false;
+    function posFromX(clientX) {
+      var r = baFrame.getBoundingClientRect();
+      if (!r.width) return 50;
+      return ((clientX - r.left) / r.width) * 100;
+    }
+    baFrame.addEventListener('pointerdown', function(e) {
+      dragging = true;
+      try { baFrame.setPointerCapture(e.pointerId); } catch (_) {}
+      // Mouse: jump to the click. Touch: wait for actual movement, so a vertical
+      // scroll that starts on the image doesn't yank the divider across.
+      if (e.pointerType === 'mouse') updateBaPos(posFromX(e.clientX));
+    });
+    baFrame.addEventListener('pointermove', function(e) {
+      if (!dragging) return;
+      updateBaPos(posFromX(e.clientX));
+    });
+    function stop(e) {
+      if (!dragging) return;
+      dragging = false;
+      try { baFrame.releasePointerCapture(e.pointerId); } catch (_) {}
+    }
+    baFrame.addEventListener('pointerup', stop);
+    baFrame.addEventListener('pointercancel', stop);   // fires when the browser takes over to scroll
+    baFrame.addEventListener('lostpointercapture', stop);
+  })();
 
   function switchBaTab(key) {
     const d = baData[key];
@@ -1120,6 +1159,7 @@
   }
 
   updateBaPos(baRange.value);
+  // Keyboard support (arrow keys) via the visually-hidden range input.
   baRange.addEventListener('input', function() { updateBaPos(this.value); });
 
 </script>
