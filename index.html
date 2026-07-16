@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firehouse Shine | Mobile Detailing, Window, Dryer Vent & Trash Can Cleaning — Spartanburg, SC</title>
+  <meta name="description" content="Firefighter & veteran owned mobile cleaning. Car detailing, window cleaning, dryer vent cleaning & trash can cleaning — we come to you. Serving Spartanburg, SC & surrounding areas." />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:    #0b0c0d;
+      --steel:    #17191c;
+      --steel-2:  #202327;
+      --red:      #D91A28;
+      --red-dark: #a5121f;
+      --ember-o:  #FF7A1A;
+      --ember-y:  #FFB627;
+      --light:    #F1F2F3;
+      --white:    #ffffff;
+      --ink:      #17181a;
+      --muted:    #5c6066;
+      --line:     rgba(255,255,255,0.1);
+      --line-dk:  rgba(0,0,0,0.1);
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Barlow', sans-serif; font-weight: 400; background: var(--light); color: var(--ink); overflow-x: hidden; }
+    .headline { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.005em; }
+    img { max-width: 100%; display: block; }
+
+    /* ── ALERT TICKER ── */
+    .ticker-wrap { position: fixed; top: 0; left: 0; width: 100%; z-index: 101; background: var(--red); height: 32px; overflow: hidden; }
+    .ticker-track { display: flex; white-space: nowrap; align-items: center; height: 32px; animation: ticker-scroll 30s linear infinite; width: max-content; }
+    .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); padding: 0 2.2rem; flex-shrink: 0; }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 32px; left: 0; width: 100%; z-index: 100; background: rgba(11,12,13,0.98); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 76px; border-bottom: 1px solid var(--line); transition: box-shadow 0.3s; }
+    nav.scrolled { box-shadow: 0 6px 24px rgba(0,0,0,0.35); }
+    .nav-brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+    .nav-logo-img { height: 52px; width: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--red); background: var(--white); }
+    .nav-brand-text { font-family: 'Anton', sans-serif; font-size: 1.3rem; letter-spacing: 0.02em; color: var(--white); line-height: 1; text-transform: uppercase; }
+    .nav-brand-text span { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.56rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ember-o); margin-top: 4px; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.82); font-family: 'Barlow Condensed', sans-serif; font-size: 0.92rem; text-decoration: none; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--red); }
+    .nav-cta { background: var(--red); color: var(--white) !important; padding: 0.6rem 1.4rem !important; font-weight: 700 !important; clip-path: polygon(8% 0,100% 0,92% 100%,0 100%); }
+    .nav-cta:hover { background: var(--ember-o) !important; }
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; z-index: 110; }
+    .nav-hamburger span { display: block; width: 24px; height: 3px; background: var(--white); transition: transform 0.3s, opacity 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; top: 108px; z-index: 99; background: rgba(11,12,13,0.99); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; padding: 2rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 600; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; }
+    .mobile-menu a:hover { color: var(--red); }
+    .mobile-menu .nav-cta { background: var(--red); padding: 0.9rem 2.5rem; margin-top: 0.5rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 5%; scroll-margin-top: 110px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; color: var(--red); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.6rem; }
+    .eyebrow::before { content: ''; width: 26px; height: 2px; background: var(--red); display: inline-block; }
+    .eyebrow.center { justify-content: center; }
+    h2 { font-size: clamp(2.2rem, 4.2vw, 3.3rem); line-height: 1.03; color: var(--ink); margin-bottom: 1.2rem; }
+    h2 .accent { color: var(--red); }
+    .lead { font-size: 1.06rem; line-height: 1.75; font-weight: 300; color: var(--muted); max-width: 620px; }
+    .section-head { max-width: 1200px; margin: 0 auto 3.4rem; }
+    .section-head.center { text-align: center; }
+    .section-head.center .lead { margin-left: auto; margin-right: auto; }
+    .btn-primary, .btn-secondary, .btn-dark, .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; padding: 0.95rem 2rem; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; display: inline-block; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; clip-path: polygon(6% 0,100% 0,94% 100%,0 100%); }
+    .btn-primary { background: var(--red); color: var(--white); }
+    .btn-primary:hover { background: var(--ember-o); transform: translateY(-2px); }
+    .btn-secondary { background: transparent; border-color: rgba(255,255,255,0.4); color: var(--white); }
+    .btn-secondary:hover { border-color: var(--red); background: rgba(217,26,40,0.1); }
+    .btn-ghost { background: transparent; border-color: rgba(0,0,0,0.25); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+    .btn-dark { background: var(--black); color: var(--white); border-color: var(--black); }
+    .btn-dark:hover { background: var(--steel); }
+
+    /* ── HERO ── */
+    .hero { background: var(--black); padding: 138px 5% 0; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 78% 30%, rgba(217,26,40,0.28), transparent 60%), repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 42px); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.4rem; max-width: 1240px; margin: 0 auto; align-items: center; position: relative; z-index: 1; padding-bottom: 3rem; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; width: fit-content; background: rgba(217,26,40,0.16); border: 1px solid var(--red); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 600; padding: 0.45rem 1rem; margin-bottom: 1.5rem; clip-path: polygon(4% 0,100% 0,96% 100%,0 100%); }
+    .hero h1 { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(2.6rem, 5vw, 4.3rem); line-height: 0.98; color: var(--white); margin-bottom: 1.3rem; }
+    .hero h1 .line-red { color: var(--red); }
+    .hero-sub { font-size: 1.1rem; line-height: 1.65; font-weight: 300; color: rgba(255,255,255,0.74); max-width: 500px; margin-bottom: 2rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+    .hero-trust { display: flex; gap: 0; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 1.4rem; }
+    .hero-trust div { display: flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.7); letter-spacing: 0.03em; text-transform: uppercase; padding-right: 1.3rem; margin-right: 1.3rem; border-right: 1px solid var(--line); }
+    .hero-trust div:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+    .hero-trust span { color: var(--red); font-size: 1.05rem; }
+    /* hero image — shown FULL (natural aspect, never cropped) */
+    .hero-visual { position: relative; }
+    .hero-photo-frame { position: relative; border: 3px solid var(--red); background: var(--steel-2); box-shadow: 0 24px 60px rgba(0,0,0,0.55); clip-path: polygon(0 0, 100% 0, 100% 92%, 94% 100%, 0 100%); }
+    .hero-photo-frame img { width: 100%; height: auto; display: block; }
+    .hero-photo-badge { position: absolute; z-index: 3; right: -14px; top: -14px; background: var(--black); border: 3px solid var(--red); width: 104px; height: 104px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 10px 26px rgba(0,0,0,0.5); }
+    .hero-photo-badge .t1 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.5rem; letter-spacing: 0.1em; color: var(--ember-o); text-transform: uppercase; font-weight: 700; }
+    .hero-photo-badge .t2 { font-family: 'Anton', sans-serif; font-size: 0.9rem; color: var(--white); line-height: 1.05; margin: 0.2rem 0; text-transform: uppercase; }
+    .hero-photo-badge .t3 { color: var(--red); font-size: 0.62rem; letter-spacing: 0.1em; }
+    .hero-caption { position: absolute; left: 14px; bottom: 14px; z-index: 3; background: rgba(11,12,13,0.82); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 0.8rem; border-left: 3px solid var(--red); }
+    /* hero SVG "clean car" graphic */
+    .hero-svg { width: 100%; height: auto; display: block; }
+    .hero-svg .spark { transform-box: fill-box; transform-origin: center; animation: twinkle 2.6s ease-in-out infinite; }
+    .hero-svg .ember { transform-box: fill-box; transform-origin: center; animation: emberFloat 5.5s ease-in infinite; }
+    @keyframes twinkle { 0%, 100% { opacity: 0.25; transform: scale(0.6) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+    @keyframes emberFloat { 0% { transform: translateY(6px); opacity: 0; } 25% { opacity: 0.95; } 100% { transform: translateY(-40px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .hero-svg .spark, .hero-svg .ember { animation: none; } }
+
+    /* hero service strip */
+    .hero-strip { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+    .hero-strip a { display: flex; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.4rem 0.6rem; text-decoration: none; border-right: 1px solid var(--line); transition: background 0.2s; }
+    .hero-strip a:last-child { border-right: none; }
+    .hero-strip a:hover { background: rgba(217,26,40,0.12); }
+    .hero-strip .ic { font-size: 1.3rem; }
+    .hero-strip .tx { font-family: 'Barlow Condensed', sans-serif; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+    @media (max-width: 900px) {
+      .hero { padding-top: 130px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2.4rem; padding-bottom: 2.4rem; }
+      .hero-visual { max-width: 520px; margin: 0 auto; width: 100%; }
+      .hero-strip { grid-template-columns: 1fr 1fr; }
+      .hero-strip a:nth-child(2) { border-right: none; }
+      .hero-strip a:nth-child(1), .hero-strip a:nth-child(2) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 480px) {
+      .hero { padding-top: 118px; }
+      .hero-strip a { padding: 0.95rem 0.35rem; gap: 0.45rem; }
+      .hero-strip .tx { font-size: 0.7rem; letter-spacing: 0.03em; }
+      .hero-strip .ic { font-size: 1.05rem; }
+    }
+
+    /* ── SLAB DIVIDER ── */
+    .slab { height: 58px; background: var(--red); position: relative; clip-path: polygon(0 24%, 100% 0, 100% 76%, 0 100%); display: flex; align-items: center; justify-content: center; }
+    .slab.dark { background: var(--black); }
+    .slab-icon { color: rgba(255,255,255,0.92); font-size: 1.3rem; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--light); }
+    .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .about-quote { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 600; font-style: italic; color: var(--ink); line-height: 1.5; padding: 1.2rem 1.6rem; margin-bottom: 1.6rem; background: var(--white); border-left: 5px solid var(--red); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .about-verse { font-size: 0.82rem; color: #999; font-style: italic; margin-top: 1.4rem; }
+    /* about image — shown FULL */
+    .about-visual { position: relative; }
+    .about-photo-frame { border: 3px solid var(--black); background: var(--white); box-shadow: 0 18px 44px rgba(0,0,0,0.14); clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%, 0 94%); }
+    .about-photo-frame img { width: 100%; height: auto; display: block; }
+    .about-photo-tag { position: absolute; left: -12px; top: 22px; background: var(--red); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0.9rem; box-shadow: 0 6px 16px rgba(0,0,0,0.25); }
+    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 1200px; margin: 3.5rem auto 0; }
+    .about-stat { background: var(--white); border: 1px solid var(--line-dk); border-top: 4px solid var(--red); padding: 1.6rem 1rem; text-align: center; }
+    .about-stat .n { font-family: 'Anton', sans-serif; font-size: 1.7rem; color: var(--ink); }
+    .about-stat .l { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+
+    /* ── SERVICES (cards) ── */
+    .services { background: var(--steel); }
+    .services h2, .services .eyebrow { color: var(--white); }
+    .services h2 { color: var(--white); }
+    .services .lead { color: rgba(255,255,255,0.62); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; max-width: 1200px; margin: 0 auto; }
+    .svc-card { background: var(--steel-2); border: 1px solid var(--line); padding: 2rem 1.7rem 2.1rem; position: relative; transition: transform 0.25s, border-color 0.25s; overflow: hidden; }
+    .svc-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+    .svc-card:hover { transform: translateY(-6px); border-color: rgba(217,26,40,0.5); }
+    .svc-card:hover::before { transform: scaleX(1); }
+    .svc-icon { font-size: 2.1rem; display: block; margin-bottom: 1rem; }
+    .svc-card h3 { font-family: 'Anton', sans-serif; font-size: 1.3rem; color: var(--white); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.01em; }
+    .svc-card ul { list-style: none; margin-bottom: 1.2rem; }
+    .svc-card li { font-size: 0.9rem; line-height: 1.85; font-weight: 300; color: rgba(255,255,255,0.6); padding-left: 1.2rem; position: relative; }
+    .svc-card li::before { content: '▸'; position: absolute; left: 0; color: var(--red); }
+    .svc-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ember-o); border: 1px solid rgba(255,122,26,0.4); padding: 0.28rem 0.7rem; display: inline-block; }
+    @media (max-width: 980px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+
+    /* ── BEFORE / AFTER (tabbed, images shown FULL via contain) ── */
+    .ba-section { background: var(--light); }
+    .ba-tabs { display: flex; justify-content: center; gap: 0.7rem; margin: 0 auto 2.2rem; flex-wrap: wrap; }
+    .ba-tab { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.75rem 1.6rem; background: var(--white); border: 2px solid #dcdcdc; color: var(--muted); cursor: pointer; clip-path: polygon(5% 0,100% 0,95% 100%,0 100%); transition: all 0.2s; }
+    .ba-tab.active { background: var(--red); border-color: var(--red); color: var(--white); }
+    .ba-wrap { max-width: 620px; margin: 0 auto; }
+    .ba-monitor { background: var(--black); padding: 12px; border: 1px solid var(--line); position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+    .ba-corner { position: absolute; width: 12px; height: 12px; background: var(--red); border-radius: 50%; z-index: 4; }
+    .ba-corner.tl { top: 5px; left: 5px; } .ba-corner.tr { top: 5px; right: 5px; }
+    .ba-corner.bl { bottom: 5px; left: 5px; } .ba-corner.br { bottom: 5px; right: 5px; }
+    .ba-frame { --pos: 50%; position: relative; overflow: hidden; aspect-ratio: 1/1; touch-action: pan-y; background: #050505; }
+    .ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; -webkit-user-select: none; user-select: none; pointer-events: none; background: #050505; }
+    .ba-before { clip-path: polygon(0 0, var(--pos) 0, var(--pos) 100%, 0 100%); }
+    .ba-divider { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; background: var(--red); transform: translateX(-50%); z-index: 3; pointer-events: none; }
+    .ba-handle { position: absolute; top: 50%; left: 50%; width: 48px; height: 48px; border-radius: 50%; background: var(--red); border: 3px solid var(--white); transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem; font-weight: 700; box-shadow: 0 4px 14px rgba(0,0,0,0.5); }
+    .ba-tag { position: absolute; top: 0.8rem; z-index: 3; pointer-events: none; background: rgba(11,12,13,0.82); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.8rem; }
+    .ba-tag-before { left: 0.8rem; border-left: 3px solid var(--ember-o); }
+    .ba-tag-after { right: 0.8rem; border-right: 3px solid var(--red); }
+    .ba-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; -webkit-appearance: none; appearance: none; background: transparent; cursor: ew-resize; z-index: 5; }
+    .ba-range::-webkit-slider-thumb { -webkit-appearance: none; width: 1px; height: 1px; }
+    .ba-range::-moz-range-thumb { width: 1px; height: 1px; border: none; background: transparent; }
+    .ba-caption { text-align: center; margin-top: 1.3rem; }
+    .ba-caption strong { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 1.15rem; color: var(--ink); display: block; margin-bottom: 0.3rem; }
+    .ba-caption span { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── PROMO ── */
+    .promo { background: var(--black); padding: 3.2rem 5%; position: relative; overflow: hidden; }
+    .promo::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 88% 12%, rgba(217,26,40,0.32), transparent 55%); }
+    .promo-flex { display: flex; align-items: center; gap: 2.4rem; max-width: 1000px; margin: 0 auto; flex-wrap: wrap; position: relative; z-index: 1; }
+    .promo-icon { font-size: 3.6rem; flex-shrink: 0; }
+    .promo-body { flex: 1; min-width: 280px; }
+    .promo-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; letter-spacing: 0.16em; color: var(--ember-o); text-transform: uppercase; margin-bottom: 0.3rem; font-weight: 700; }
+    .promo-title { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(1.7rem, 3.4vw, 2.5rem); color: var(--white); line-height: 1.08; margin-bottom: 0.7rem; }
+    .promo-title .accent { color: var(--red); }
+    .promo-detail { color: rgba(255,255,255,0.82); font-size: 0.98rem; line-height: 1.65; margin-bottom: 1.3rem; max-width: 560px; }
+    .promo-detail strong { color: var(--ember-o); }
+
+    /* ── VIDEO (9:16 shown FULL via contain phone frame) ── */
+    .video-section { background: var(--light); }
+    .video-grid { display: grid; grid-template-columns: 360px 1fr; gap: 3.4rem; max-width: 1000px; margin: 0 auto; align-items: center; }
+    .video-frame { position: relative; border: 4px solid var(--black); background: #000; aspect-ratio: 720/1000; overflow: hidden; box-shadow: 0 18px 44px rgba(0,0,0,0.2); }
+    .video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; background: #000; }
+    .video-points { list-style: none; }
+    .video-points li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.4rem; color: #3a3d42; font-size: 1rem; line-height: 1.55; font-weight: 300; }
+    .video-points li .mark { flex-shrink: 0; width: 30px; height: 30px; background: var(--red); color: var(--white); font-family: 'Anton', sans-serif; font-size: 0.95rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 760px) { .video-grid { grid-template-columns: 1fr; } .video-frame { max-width: 340px; margin: 0 auto; } }
+
+    /* ── GALLERY (masonry — every image shown FULL, no crop) ── */
+    .gallery { background: var(--steel); }
+    .gallery h2, .gallery .eyebrow { color: var(--white); }
+    .gallery h2 { color: var(--white); }
+    .gallery .lead { color: rgba(255,255,255,0.62); }
+    .gallery-masonry { column-count: 3; column-gap: 1rem; max-width: 1100px; margin: 0 auto; }
+    .gallery-item { break-inside: avoid; margin-bottom: 1rem; position: relative; overflow: hidden; cursor: pointer; border: 1px solid var(--line); display: block; }
+    .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.5s ease, filter 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.05); filter: brightness(0.72); }
+    .gallery-overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 1.2rem; background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, transparent 45%); opacity: 0; transition: opacity 0.3s ease; }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span { color: var(--white); font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 0.02em; text-transform: uppercase; border-left: 3px solid var(--red); padding-left: 0.6rem; }
+    @media (max-width: 900px) { .gallery-masonry { column-count: 2; } }
+    @media (max-width: 560px) { .gallery-masonry { column-count: 1; max-width: 420px; } }
+
+    /* ── LIGHTBOX ── */
+    .lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(10,10,10,0.95); display: none; align-items: center; justify-content: center; padding: 4%; }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 88vh; border: 3px solid var(--red); box-shadow: 0 10px 50px rgba(0,0,0,0.5); }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--red); color: var(--white); width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer; border: none; }
+    .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.3); width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; }
+    .lightbox-nav:hover { background: var(--red); border-color: var(--red); }
+    .lightbox-prev { left: 1.5rem; } .lightbox-next { right: 1.5rem; }
+
+    /* ── PROCESS (stepper) ── */
+    .process { background: var(--light); }
+    .stepper { display: flex; justify-content: space-between; position: relative; max-width: 1000px; margin: 3.4rem auto 0; gap: 1rem; }
+    .stepper::before { content: ''; position: absolute; top: 23px; left: 6%; right: 6%; height: 3px; background: linear-gradient(90deg, var(--red), var(--ember-o)); z-index: 0; }
+    .step { position: relative; z-index: 1; flex: 1; text-align: center; padding: 0 0.6rem; }
+    .step-node { width: 48px; height: 48px; border-radius: 50%; background: var(--black); border: 3px solid var(--red); color: var(--white); font-family: 'Anton', sans-serif; font-size: 1.15rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .step h4 { font-family: 'Anton', sans-serif; font-size: 1.05rem; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: 0.01em; }
+    .step p { font-size: 0.86rem; line-height: 1.55; font-weight: 300; color: var(--muted); }
+    @media (max-width: 768px) {
+      .stepper { flex-direction: column; align-items: stretch; padding-left: 0; gap: 1.6rem; }
+      .stepper::before { top: 8px; bottom: 8px; left: 22px; right: auto; width: 3px; height: auto; background: linear-gradient(180deg, var(--red), var(--ember-o)); }
+      .step { text-align: left; padding: 0; }
+      .step > div { display: grid; grid-template-columns: 48px 1fr; column-gap: 1rem; align-items: start; }
+      .step-node { margin: 0; grid-column: 1; grid-row: 1 / span 2; }
+      .step h4 { grid-column: 2; grid-row: 1; margin-bottom: 0.25rem; }
+      .step p { grid-column: 2; grid-row: 2; }
+    }
+
+    /* ── TRUST PILLS ── */
+    .pill-band { background: var(--black); padding: 2.6rem 5%; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .trust-pill { display: flex; align-items: center; gap: 0.6rem; background: var(--steel-2); border: 1px solid var(--line); padding: 0.75rem 1.4rem; border-radius: 999px; }
+    .trust-pill .ic { font-size: 1.1rem; }
+    .trust-pill span.lbl { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.78); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+
+    /* ── CTA ── */
+    .cta { background: var(--light); }
+    .cta-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; max-width: 1050px; margin: 0 auto; align-items: center; }
+    .cta h2 { color: var(--ink); }
+    .cta-phone { font-family: 'Anton', sans-serif; font-size: 2.7rem; color: var(--ink); text-decoration: none; display: block; margin: 1.4rem 0 0.4rem; transition: color 0.2s; }
+    .cta-phone:hover { color: var(--red); }
+    .cta-phone-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.6rem; }
+    .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cta-card { background: var(--steel); border: 1px solid var(--line); padding: 2.2rem; }
+    .cta-card h5 { font-family: 'Anton', sans-serif; color: var(--white); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .cta-card ul { list-style: none; margin-bottom: 1.4rem; }
+    .cta-card li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.92rem; color: rgba(255,255,255,0.74); margin-bottom: 0.8rem; }
+    .cta-card li .ic { flex-shrink: 0; }
+    .cta-card .social-row { display: flex; gap: 0.6rem; }
+    .cta-card .social-row a { display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); width: 38px; height: 38px; border-radius: 50%; transition: background 0.2s, color 0.2s; }
+    .cta-card .social-row a svg { width: 18px; height: 18px; fill: currentColor; }
+    .cta-card .social-row a:hover { background: var(--red); color: white; }
+    @media (max-width: 860px) { .cta-grid { grid-template-columns: 1fr; } }
+
+    /* ── FOOTER ── */
+    footer { background: var(--black); color: rgba(255,255,255,0.5); }
+    .footer-top { background: var(--red); text-align: center; padding: 1.5rem 5%; }
+    .footer-top a { font-family: 'Anton', sans-serif; font-size: 1.45rem; color: var(--white); text-decoration: none; letter-spacing: 0.02em; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; padding: 2.8rem 5% 2.4rem; }
+    .footer-brand { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+    .footer-logo-img { height: 52px; width: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--red); background: var(--white); }
+    .footer-brand-name { font-family: 'Anton', sans-serif; font-size: 1.3rem; color: var(--white); text-transform: uppercase; line-height: 1.2; }
+    .footer-brand-name span { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; color: var(--ember-o); letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-top: 4px; }
+    .footer-tagline { font-size: 0.85rem; line-height: 1.6; font-weight: 300; margin-bottom: 1.2rem; }
+    .footer-social { display: flex; gap: 0.6rem; }
+    .footer-social a { display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); width: 34px; height: 34px; border-radius: 50%; transition: background 0.2s, color 0.2s; }
+    .footer-social a svg { width: 16px; height: 16px; fill: currentColor; }
+    .footer-social a:hover { background: var(--red); color: white; }
+    footer h5 { font-family: 'Anton', sans-serif; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.55rem; }
+    .footer-links a { color: rgba(255,255,255,0.5); font-size: 0.9rem; font-weight: 300; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--red); }
+    .footer-contact-item { font-size: 0.9rem; font-weight: 300; margin-bottom: 0.55rem; }
+    .footer-contact-item a { color: var(--red); text-decoration: none; }
+    .footer-contact-item a.btn-primary { color: var(--white) !important; }
+    .footer-bottom { border-top: 1px solid var(--line); padding: 1.5rem 5%; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; flex-wrap: wrap; gap: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* ── STICKY PHONE ── */
+    .sticky-phone { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; background: var(--red); color: white; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.04em; padding: 0.8rem 1.4rem; box-shadow: 0 6px 22px rgba(0,0,0,0.4); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s, transform 0.15s; border: 2px solid var(--black); clip-path: polygon(6% 0,100% 0,94% 100%,0 100%); }
+    .sticky-phone:hover { background: var(--ember-o); transform: translateY(-2px); }
+
+    /* ── QUOTE MODAL ── */
+    .quote-modal-overlay { position: fixed; inset: 0; z-index: 500; background: rgba(10,10,10,0.9); display: none; align-items: center; justify-content: center; padding: 1.5rem; }
+    .quote-modal-overlay.active { display: flex; }
+    .quote-modal { background: var(--light); max-width: 560px; width: 100%; padding: 2.8rem 2.6rem 2.4rem; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border-top: 6px solid var(--red); max-height: 90vh; overflow-y: auto; }
+    .quote-modal-close { position: absolute; top: 1rem; right: 1rem; background: var(--red); color: var(--white); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; border: none; }
+    .quote-modal-close:hover { background: var(--ember-o); }
+    .quote-modal h3 { font-family: 'Anton', sans-serif; font-size: 2rem; text-transform: uppercase; color: var(--ink); margin-bottom: 0.3rem; }
+    .quote-modal h3 span { color: var(--red); }
+    .quote-modal-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; margin-bottom: 2rem; }
+    .qm-field { margin-bottom: 1.2rem; }
+    .qm-field label { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #444; margin-bottom: 0.4rem; }
+    .qm-field input, .qm-field textarea { width: 100%; padding: 0.78rem 1rem; border: 1.5px solid #ccc; font-family: 'Barlow', sans-serif; font-size: 0.96rem; font-weight: 300; background: #fff; color: var(--ink); outline: none; }
+    .qm-field input:focus, .qm-field textarea:focus { border-color: var(--red); }
+    .qm-field textarea { resize: vertical; min-height: 110px; }
+    .qm-submit { width: 100%; padding: 1rem; background: var(--red); color: var(--white); border: none; font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; margin-top: 0.4rem; clip-path: polygon(2% 0,100% 0,98% 100%,0 100%); }
+    .qm-submit:hover { background: var(--ember-o); }
+    .qm-success { display: none; text-align: center; padding: 1.5rem 0; }
+    .qm-success-icon { font-size: 3rem; margin-bottom: 0.8rem; }
+    .qm-success h4 { font-family: 'Anton', sans-serif; font-size: 1.7rem; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
+    .qm-success p { font-size: 0.92rem; color: var(--muted); font-weight: 300; }
+    .qm-note { font-size: 0.75rem; color: #aaa; text-align: center; margin-top: 1rem; font-weight: 300; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.6rem; }
+      .about-visual { max-width: 440px; margin: 0 auto; order: -1; }
+      .about-stats { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      section { padding: 60px 5%; }
+      /* comfortable touch targets */
+      .btn-primary, .btn-secondary, .btn-dark, .btn-ghost, .ba-tab {
+        min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+      }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-actions a { text-align: center; }
+      .lightbox-prev { left: 0.5rem; } .lightbox-next { right: 0.5rem; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 50px 4%; }
+      h2 { font-size: clamp(1.9rem, 8vw, 2.6rem); }
+      .quote-modal { padding: 2rem 1.4rem 1.8rem; }
+      .promo-flex { text-align: center; justify-content: center; }
+      .sticky-phone { font-size: 0.82rem; padding: 0.7rem 1.1rem; bottom: 1rem; right: 1rem; }
+      .hero-trust div { border-right: none; margin-right: 0; padding-right: 0; margin-bottom: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>🚨 FIREFIGHTER &amp; VETERAN OWNED</span>
+    <span>🚒 100% MOBILE — WE COME TO YOU</span>
+    <span>📍 SERVING SPARTANBURG, SC &amp; SURROUNDING AREAS</span>
+    <span>🧽 CLEAN TODAY. PROTECT TOMORROW.</span>
+    <span>🚨 FIREFIGHTER &amp; VETERAN OWNED</span>
+    <span>🚒 100% MOBILE — WE COME TO YOU</span>
+    <span>📍 SERVING SPARTANBURG, SC &amp; SURROUNDING AREAS</span>
+    <span>🧽 CLEAN TODAY. PROTECT TOMORROW.</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#home" class="nav-brand">
+    <img src="images/logo.png" alt="Firehouse Shine logo" class="nav-logo-img" />
+    <div class="nav-brand-text">Firehouse Shine<span>Professional Exterior Cleaning</span></div>
+  </a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#before-after">Before/After</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#" class="nav-cta" onclick="openQuoteModal(event)">Free Quote</a></li>
+  </ul>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#before-after" onclick="closeMobileMenu()">Before/After</a>
+  <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#" class="nav-cta" onclick="closeMobileMenu(); openQuoteModal(event)">Free Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-eyebrow">🚒 Firefighter &amp; Veteran Owned</div>
+      <h1>Clean Spaces.<br><span class="line-red">Healthy</span> Places.<br>Safer Families.</h1>
+      <p class="hero-sub">Professional mobile car detailing, window cleaning, dryer vent cleaning &amp; trash can sanitizing — brought straight to your driveway across Spartanburg, SC.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary" onclick="openQuoteModal(event)">Get a Free Quote</a>
+        <a href="#before-after" class="btn-secondary">See The Shine</a>
+      </div>
+      <div class="hero-trust">
+        <div><span>🎖️</span> Veteran Owned</div>
+        <div><span>🚚</span> Fully Mobile</div>
+        <div><span>★</span> 5-Star Service</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo-frame">
+        <svg class="hero-svg" viewBox="80 250 640 320" role="img" aria-label="Stylized graphic of a clean, freshly detailed shiny SUV with shine sparkles">
+          <defs>
+            <radialGradient id="hgBg" cx="70%" cy="26%" r="82%">
+              <stop offset="0%" stop-color="#2e1618"/>
+              <stop offset="42%" stop-color="#141416"/>
+              <stop offset="100%" stop-color="#09090a"/>
+            </radialGradient>
+            <radialGradient id="hgRed" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(217,26,40,0.5)"/>
+              <stop offset="60%" stop-color="rgba(255,122,26,0.14)"/>
+              <stop offset="100%" stop-color="rgba(217,26,40,0)"/>
+            </radialGradient>
+            <radialGradient id="hgShine" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.38)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+            </radialGradient>
+            <linearGradient id="hgBody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="50%" stop-color="#e8ebee"/>
+              <stop offset="70%" stop-color="#b2b7bc"/>
+              <stop offset="100%" stop-color="#f0f2f3"/>
+            </linearGradient>
+            <linearGradient id="hgGlass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#5e666f"/>
+              <stop offset="45%" stop-color="#232930"/>
+              <stop offset="100%" stop-color="#39414a"/>
+            </linearGradient>
+            <linearGradient id="hgClad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2b2e32"/>
+              <stop offset="100%" stop-color="#111214"/>
+            </linearGradient>
+            <radialGradient id="hgRim" cx="42%" cy="40%" r="62%">
+              <stop offset="0%" stop-color="#f7f7f8"/>
+              <stop offset="55%" stop-color="#c4c8cc"/>
+              <stop offset="100%" stop-color="#73787e"/>
+            </radialGradient>
+            <clipPath id="bodyClip">
+              <path d="M150,452 L150,404 C150,384 156,372 172,368 L246,344 L298,290 C300,287 304,286 310,286 L556,286 C564,286 570,288 574,294 L604,340 L610,360 C614,368 615,378 615,392 L615,452 L597,452 C593,372 497,372 493,452 L277,452 C273,372 177,372 173,452 Z"/>
+            </clipPath>
+          </defs>
+        
+          <!-- background -->
+          <rect x="80" y="250" width="640" height="320" fill="url(#hgBg)"/>
+          <ellipse cx="470" cy="310" rx="360" ry="210" fill="url(#hgRed)"/>
+          <ellipse cx="385" cy="420" rx="270" ry="90" fill="url(#hgShine)" opacity="0.4"/>
+        
+          <!-- floating embers -->
+          <g fill="#FF7A1A">
+            <circle class="ember" cx="140" cy="300" r="2.6" style="animation-delay:0s"/>
+            <circle class="ember" cx="668" cy="278" r="2.2" fill="#FFB627" style="animation-delay:1.2s"/>
+            <circle class="ember" cx="640" cy="330" r="3" style="animation-delay:2.1s"/>
+            <circle class="ember" cx="240" cy="268" r="1.8" fill="#FFB627" style="animation-delay:0.7s"/>
+            <circle class="ember" cx="470" cy="272" r="2.2" style="animation-delay:3s"/>
+            <circle class="ember" cx="350" cy="280" r="1.8" fill="#FFB627" style="animation-delay:1.8s"/>
+            <circle class="ember" cx="700" cy="350" r="2.6" style="animation-delay:2.6s"/>
+            <circle class="ember" cx="108" cy="360" r="2.2" fill="#FFB627" style="animation-delay:0.4s"/>
+          </g>
+        
+          <!-- ground shadow + red light line -->
+          <ellipse cx="385" cy="506" rx="262" ry="15" fill="#000" opacity="0.6"/>
+          <rect x="150" y="518" width="470" height="3.5" rx="2" fill="#D91A28" opacity="0.65"/>
+        
+          <!-- car body -->
+          <path d="M150,452 L150,404 C150,384 156,372 172,368 L246,344 L298,290 C300,287 304,286 310,286 L556,286 C564,286 570,288 574,294 L604,340 L610,360 C614,368 615,378 615,392 L615,452 L597,452 C593,372 497,372 493,452 L277,452 C273,372 177,372 173,452 Z" fill="url(#hgBody)" stroke="#9aa0a6" stroke-width="1.4"/>
+        
+          <!-- clipped detail -->
+          <g clip-path="url(#bodyClip)">
+            <rect x="145" y="434" width="475" height="20" fill="url(#hgClad)"/>
+            <path d="M172,372 Q385,362 610,374" stroke="#ffffff" stroke-width="3.5" fill="none" opacity="0.8" stroke-linecap="round"/>
+            <path d="M182,408 Q385,404 600,412" stroke="#ffffff" stroke-width="2.2" fill="none" opacity="0.2" stroke-linecap="round"/>
+            <path d="M395,346 L395,436" stroke="rgba(0,0,0,0.13)" stroke-width="2"/>
+            <path d="M485,346 L485,436" stroke="rgba(0,0,0,0.13)" stroke-width="2"/>
+            <path d="M248,346 L606,352" stroke="rgba(0,0,0,0.10)" stroke-width="2"/>
+          </g>
+        
+          <!-- door handles -->
+          <rect x="358" y="376" width="22" height="5.5" rx="2.75" fill="#9aa0a6"/>
+          <rect x="502" y="376" width="22" height="5.5" rx="2.75" fill="#9aa0a6"/>
+        
+          <!-- glass -->
+          <path d="M254,338 L300,292 L554,290 L598,338 Z" fill="url(#hgGlass)"/>
+          <path d="M388,337 L390,291 L402,291 L400,337 Z" fill="url(#hgBody)"/>
+          <path d="M478,337 L480,290 L492,290 L490,337 Z" fill="url(#hgBody)"/>
+          <path d="M266,334 L302,297 L348,296 L318,334 Z" fill="#ffffff" opacity="0.13"/>
+        
+          <!-- lights + front fascia detail -->
+          <g clip-path="url(#bodyClip)">
+            <rect x="150" y="414" width="40" height="15" rx="5" fill="#2b2e32" opacity="0.85"/>
+          </g>
+          <path d="M153,380 L182,375 L187,383 L182,392 L153,395 Z" fill="#eaf3ff" stroke="#c4ccd4" stroke-width="1"/>
+          <path d="M158,384 L180,380 L182,384 L180,388 L158,391 Z" fill="#ffffff" opacity="0.85"/>
+          <path d="M600,375 L612,378 L612,388 L600,390 Z" fill="#e02330" stroke="#a8121c" stroke-width="1"/>
+        
+          <!-- wheels -->
+          <g>
+            <circle cx="225" cy="452" r="53" fill="#0d0d0e"/>
+            <circle cx="225" cy="452" r="51" fill="#161616" stroke="#2c2c2c" stroke-width="2"/>
+            <circle cx="225" cy="452" r="32" fill="url(#hgRim)"/>
+            <circle cx="225" cy="452" r="7" fill="#5c6167"/>
+            <g stroke="#8b9096" stroke-width="5" stroke-linecap="round">
+              <line x1="225" y1="452" x2="225" y2="426"/>
+              <line x1="225" y1="452" x2="250" y2="466"/>
+              <line x1="225" y1="452" x2="200" y2="466"/>
+              <line x1="225" y1="452" x2="225" y2="478"/>
+              <line x1="225" y1="452" x2="250" y2="438"/>
+              <line x1="225" y1="452" x2="200" y2="438"/>
+            </g>
+            <circle cx="545" cy="452" r="53" fill="#0d0d0e"/>
+            <circle cx="545" cy="452" r="51" fill="#161616" stroke="#2c2c2c" stroke-width="2"/>
+            <circle cx="545" cy="452" r="32" fill="url(#hgRim)"/>
+            <circle cx="545" cy="452" r="7" fill="#5c6167"/>
+            <g stroke="#8b9096" stroke-width="5" stroke-linecap="round">
+              <line x1="545" y1="452" x2="545" y2="426"/>
+              <line x1="545" y1="452" x2="570" y2="466"/>
+              <line x1="545" y1="452" x2="520" y2="466"/>
+              <line x1="545" y1="452" x2="545" y2="478"/>
+              <line x1="545" y1="452" x2="570" y2="438"/>
+              <line x1="545" y1="452" x2="520" y2="438"/>
+            </g>
+          </g>
+        
+          <!-- shine sparkles -->
+          <g fill="#ffffff">
+            <path class="spark" style="animation-delay:0s" transform="translate(330,318)" d="M0,-12 L2.8,-2.8 L12,0 L2.8,2.8 L0,12 L-2.8,2.8 L-12,0 L-2.8,-2.8 Z"/>
+            <path class="spark" style="animation-delay:0.9s" transform="translate(440,392) scale(0.7)" d="M0,-12 L2.8,-2.8 L12,0 L2.8,2.8 L0,12 L-2.8,2.8 L-12,0 L-2.8,-2.8 Z"/>
+            <path class="spark" style="animation-delay:1.7s" transform="translate(540,316) scale(0.56)" d="M0,-12 L2.8,-2.8 L12,0 L2.8,2.8 L0,12 L-2.8,2.8 L-12,0 L-2.8,-2.8 Z"/>
+            <path class="spark" style="animation-delay:0.5s" transform="translate(192,392) scale(0.64)" fill="#FFB627" d="M0,-12 L2.8,-2.8 L12,0 L2.8,2.8 L0,12 L-2.8,2.8 L-12,0 L-2.8,-2.8 Z"/>
+            <path class="spark" style="animation-delay:2.3s" transform="translate(578,392) scale(0.58)" d="M0,-12 L2.8,-2.8 L12,0 L2.8,2.8 L0,12 L-2.8,2.8 L-12,0 L-2.8,-2.8 Z"/>
+          </g>
+        </svg>
+        <span class="hero-caption">Firehouse Clean, Every Time</span>
+      </div>
+      <div class="hero-photo-badge">
+        <div class="t1">Firefighter &amp;</div>
+        <div class="t2">Veteran<br>Owned</div>
+        <div class="t3">★★★★★</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <a href="#services"><span class="ic">🪟</span><span class="tx">Window Cleaning</span></a>
+    <a href="#services"><span class="ic">🗑️</span><span class="tx">Trash Can Cleaning</span></a>
+    <a href="#services"><span class="ic">🔥</span><span class="tx">Dryer Vent Cleaning</span></a>
+    <a href="#services"><span class="ic">🚗</span><span class="tx">Mobile Detailing</span></a>
+  </div>
+</section>
+
+<!-- SLAB DIVIDER -->
+<div class="slab"><span class="slab-icon">✚</span></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <span class="eyebrow">Who We Are</span>
+      <h2 class="headline">Firehouse Discipline. <span class="accent">Firehouse Shine.</span></h2>
+      <div class="about-quote">"We bring the discipline, integrity, and dedication of the firehouse to every job we do."</div>
+      <p class="lead">
+        Firehouse Shine is a firefighter and veteran owned mobile cleaning company built on honor, service, and a commitment to excellence. We show up with professional-grade equipment, do the job right the first time, and treat every driveway like our own station.
+      </p>
+      <p class="lead" style="margin-top:1rem;">
+        Fully mobile means no drop-off, no waiting in line — we bring the truck, the tools, and the work ethic straight to you, anywhere in Spartanburg and the surrounding areas.
+      </p>
+      <p class="about-verse">"Here am I, send me." — Isaiah 6:8</p>
+      <br/>
+      <a href="#contact" class="btn-primary">Start Your Service</a>
+    </div>
+    <div class="about-visual reveal" style="transition-delay:0.15s">
+      <div class="about-photo-frame">
+        <img src="images/interior-rear.jpg" alt="Detailed clean interior rear seats by Firehouse Shine" />
+      </div>
+      <div class="about-photo-tag">Detailed To The Corner</div>
+    </div>
+  </div>
+  <div class="about-stats reveal" style="transition-delay:0.25s">
+    <div class="about-stat"><div class="n">100%</div><div class="l">Satisfaction Guaranteed</div></div>
+    <div class="about-stat"><div class="n">100%</div><div class="l">Mobile — We Come To You</div></div>
+    <div class="about-stat"><div class="n">4</div><div class="l">Services, One Visit</div></div>
+  </div>
+</section>
+
+<!-- SLAB DIVIDER -->
+<div class="slab dark"><span class="slab-icon">🔥</span></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-head reveal">
+    <span class="eyebrow">What We Clean</span>
+    <h2 class="headline">Our Services</h2>
+    <p class="lead">Four ways we protect your home, your vehicle, and your family — all delivered mobile, on your schedule.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <span class="svc-icon">🪟</span>
+      <h3>Window Cleaning</h3>
+      <ul>
+        <li>Streak-free results</li>
+        <li>Interior &amp; exterior</li>
+        <li>Enhances natural light</li>
+        <li>Improves curb appeal</li>
+      </ul>
+      <span class="svc-tag">Residential</span>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:0.08s">
+      <span class="svc-icon">🗑️</span>
+      <h3>Trash Can Cleaning</h3>
+      <ul>
+        <li>Eliminates bacteria &amp; odors</li>
+        <li>Sanitizes &amp; disinfects</li>
+        <li>Keeps cans clean &amp; fresh</li>
+        <li>Curb appeal boost</li>
+      </ul>
+      <span class="svc-tag">Residential</span>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:0.16s">
+      <span class="svc-icon">🔥</span>
+      <h3>Dryer Vent Cleaning</h3>
+      <ul>
+        <li>Reduces fire risk</li>
+        <li>Improves dryer efficiency</li>
+        <li>Lowers energy bills</li>
+        <li>Extends dryer life</li>
+      </ul>
+      <span class="svc-tag">Fire Prevention</span>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:0.24s">
+      <span class="svc-icon">🚗</span>
+      <h3>Mobile Car Detailing</h3>
+      <ul>
+        <li>Interior &amp; exterior packages</li>
+        <li>Paint protection</li>
+        <li>Restores your vehicle's shine</li>
+        <li>Convenient mobile service</li>
+      </ul>
+      <span class="svc-tag">Mobile</span>
+    </div>
+  </div>
+</section>
+
+<!-- SLAB DIVIDER -->
+<div class="slab"><span class="slab-icon">✚</span></div>
+
+<!-- BEFORE / AFTER -->
+<section class="ba-section" id="before-after">
+  <div class="section-head center reveal">
+    <span class="eyebrow center">Real Job, Real Results</span>
+    <h2 class="headline">Before <span class="accent">&amp; After</span></h2>
+    <p class="lead">Pick a service, then drag the slider to see the full transformation — real photos, nothing cropped.</p>
+  </div>
+  <div class="ba-tabs reveal" style="transition-delay:0.1s">
+    <button class="ba-tab active" id="baTabDuct" onclick="switchBaTab('duct')">🔥 Dryer Vent Cleaning</button>
+    <button class="ba-tab" id="baTabCar" onclick="switchBaTab('car')">🚗 Mobile Detailing</button>
+  </div>
+  <div class="ba-wrap reveal" style="transition-delay:0.15s">
+    <div class="ba-monitor">
+      <div class="ba-corner tl"></div><div class="ba-corner tr"></div><div class="ba-corner bl"></div><div class="ba-corner br"></div>
+      <div class="ba-frame" id="baFrame">
+        <img src="images/duct-after.jpg" alt="Cleared dryer vent duct after Firehouse Shine cleaning" class="ba-img ba-after" id="baAfterImg" />
+        <img src="images/duct-before.jpg" alt="Lint-clogged dryer vent before Firehouse Shine cleaning" class="ba-img ba-before" id="baBeforeImg" />
+        <div class="ba-divider"><div class="ba-handle">↔</div></div>
+        <span class="ba-tag ba-tag-before">Before</span>
+        <span class="ba-tag ba-tag-after">After</span>
+        <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" aria-label="Drag to compare before and after" />
+      </div>
+    </div>
+    <div class="ba-caption">
+      <strong id="baCaptionTitle">Dryer Vent Cleaning</strong>
+      <span id="baCaptionNote">Actual before &amp; after from a Firehouse Shine job — drag to compare</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<div class="promo">
+  <div class="promo-flex">
+    <div class="promo-icon">💥</div>
+    <div class="promo-body">
+      <div class="promo-eyebrow">Bundle &amp; Save</div>
+      <div class="promo-title">One Company. <span class="accent">One Visit.</span> Everything Clean.</div>
+      <p class="promo-detail">
+        Book a <strong>Dryer Vent Cleaning</strong> or <strong>Full Vehicle Detail</strong> and receive
+        <strong>20% OFF</strong> one additional service — choose Window Cleaning or Trash Can Cleaning.
+      </p>
+      <a href="#" class="btn-primary" onclick="openQuoteModal(event)">Claim This Offer</a>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div class="section-head center reveal">
+    <span class="eyebrow center">Watch Us Work</span>
+    <h2 class="headline">See Us In Action</h2>
+    <p class="lead">A real Firehouse Shine mobile detail, start to finish — right in the customer's driveway.</p>
+  </div>
+  <div class="video-grid">
+    <div class="video-frame reveal">
+      <video controls preload="none" poster="images/video-poster.jpg">
+        <source src="video/firehouse-video.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <ul class="video-points reveal" style="transition-delay:0.15s">
+      <li><span class="mark">1</span><span>Fully mobile setup — professional pressure washing &amp; detailing equipment brought straight to your driveway.</span></li>
+      <li><span class="mark">2</span><span>Every detail covered, inside and out — floor mats, seats, door jambs, and every panel.</span></li>
+      <li><span class="mark">3</span><span>No mess left behind. We clean it, we finish it, we haul nothing away but the dirt.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SLAB DIVIDER -->
+<div class="slab dark"><span class="slab-icon">🔥</span></div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-head reveal">
+    <span class="eyebrow">Recent Work</span>
+    <h2 class="headline">Our Gallery</h2>
+    <p class="lead">A look at real Firehouse Shine details around Spartanburg. Click any photo to view it full size.</p>
+  </div>
+  <div class="gallery-masonry">
+    <div class="gallery-item reveal" data-img="images/traverse-clean.jpg">
+      <img src="images/traverse-clean.jpg" alt="Fully detailed white SUV exterior" loading="lazy" />
+      <div class="gallery-overlay"><span>Showroom Shine</span></div>
+    </div>
+    <div class="gallery-item reveal" data-img="images/action-shot.jpg" style="transition-delay:0.05s">
+      <img src="images/action-shot.jpg" alt="Firehouse Shine mobile detailing setup in the driveway" loading="lazy" />
+      <div class="gallery-overlay"><span>Mobile, On Site</span></div>
+    </div>
+    <div class="gallery-item reveal" data-img="images/interior-mats.jpg" style="transition-delay:0.1s">
+      <img src="images/interior-mats.jpg" alt="Spotless vacuumed floor mats and interior" loading="lazy" />
+      <div class="gallery-overlay"><span>Spotless Interior</span></div>
+    </div>
+    <div class="gallery-item reveal" data-img="images/interior-rear.jpg" style="transition-delay:0.15s">
+      <img src="images/interior-rear.jpg" alt="Detailed rear seats and door panels" loading="lazy" />
+      <div class="gallery-overlay"><span>Every Seat, Every Corner</span></div>
+    </div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <div class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</div>
+  <img src="" alt="Project photo" id="lightboxImg" />
+  <div class="lightbox-nav lightbox-next" id="lightboxNext">›</div>
+</div>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-head center reveal" style="margin-bottom:0;">
+    <span class="eyebrow center">How It Works</span>
+    <h2 class="headline">Simple. Mobile. <span class="accent">Done Right.</span></h2>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="stepper">
+      <div class="step reveal"><div><div class="step-node">1</div><h4>Get A Free Quote</h4><p>Call, text, or fill out our quick form.</p></div></div>
+      <div class="step reveal" style="transition-delay:0.1s"><div><div class="step-node">2</div><h4>We Come To You</h4><p>Our mobile unit shows up right to your driveway.</p></div></div>
+      <div class="step reveal" style="transition-delay:0.2s"><div><div class="step-node">3</div><h4>We Get To Work</h4><p>Professional equipment, firehouse-level detail.</p></div></div>
+      <div class="step reveal" style="transition-delay:0.3s"><div><div class="step-node">4</div><h4>Enjoy The Shine</h4><p>We walk the job with you. Satisfaction guaranteed.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST PILLS -->
+<div class="pill-band">
+  <div class="trust-pill"><span class="ic">🛡️</span><span class="lbl">Reliable &amp; Trusted</span></div>
+  <div class="trust-pill"><span class="ic">🏅</span><span class="lbl">Professional Equipment</span></div>
+  <div class="trust-pill"><span class="ic">🗓️</span><span class="lbl">Flexible Scheduling</span></div>
+  <div class="trust-pill"><span class="ic">👍</span><span class="lbl">Satisfaction Guaranteed</span></div>
+</div>
+
+<!-- CTA / CONTACT -->
+<section class="cta" id="contact">
+  <div class="cta-grid">
+    <div class="reveal">
+      <span class="eyebrow">Clean Today. Protect Tomorrow.</span>
+      <h2 class="headline">Ready For That<br>Firehouse <span class="accent">Shine?</span></h2>
+      <p class="lead">Every job starts with a quick call or text — no obligation, no pressure. Just honest talk about what you need and when we can get there.</p>
+      <a href="tel:8647729000" class="cta-phone">864-772-9000</a>
+      <p class="cta-phone-label">Call or Text Today</p>
+      <div class="cta-actions">
+        <a href="tel:8647729000" class="btn-primary">📞 Call Now</a>
+        <a href="sms:8647729000" class="btn-dark">💬 Text Us</a>
+        <a href="#" class="btn-ghost" onclick="openQuoteModal(event)">📋 Free Quote</a>
+      </div>
+    </div>
+    <div class="cta-card reveal" style="transition-delay:0.15s">
+      <h5>Why Firehouse Shine</h5>
+      <ul>
+        <li><span class="ic">🚒</span> Firefighter &amp; Veteran Owned</li>
+        <li><span class="ic">🚚</span> 100% Mobile — We Come To You</li>
+        <li><span class="ic">📍</span> Spartanburg, SC &amp; Surrounding Areas</li>
+        <li><span class="ic">👍</span> Satisfaction Guaranteed</li>
+      </ul>
+      <div class="social-row">
+        <a href="https://www.facebook.com/FirehouseShine" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.83c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@firehouse.shine" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-1.01-.88-1.6-2.15-1.6-3.55h-3.19v13.9c0 1.62-1.32 2.94-2.94 2.94a2.94 2.94 0 0 1-2.94-2.94 2.94 2.94 0 0 1 2.94-2.94c.3 0 .59.05.86.13V9.98a6.15 6.15 0 0 0-.86-.06A6.13 6.13 0 0 0 2.74 16.05 6.13 6.13 0 0 0 8.87 22.18a6.13 6.13 0 0 0 6.13-6.13V8.66a9.14 9.14 0 0 0 5.34 1.71V7.19a5.6 5.6 0 0 1-3.74-1.37z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <a href="tel:8647729000">📞 864-772-9000 — Call Or Text Anytime</a>
+  </div>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Firehouse Shine logo" class="footer-logo-img" />
+        <div class="footer-brand-name">Firehouse Shine<span>Spartanburg, SC</span></div>
+      </div>
+      <p class="footer-tagline">Firefighter &amp; veteran owned mobile cleaning. Clean spaces. Healthy places. Safer families.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/FirehouseShine" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.83c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@firehouse.shine" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-1.01-.88-1.6-2.15-1.6-3.55h-3.19v13.9c0 1.62-1.32 2.94-2.94 2.94a2.94 2.94 0 0 1-2.94-2.94 2.94 2.94 0 0 1 2.94-2.94c.3 0 .59.05.86.13V9.98a6.15 6.15 0 0 0-.86-.06A6.13 6.13 0 0 0 2.74 16.05 6.13 6.13 0 0 0 8.87 22.18a6.13 6.13 0 0 0 6.13-6.13V8.66a9.14 9.14 0 0 0 5.34 1.71V7.19a5.6 5.6 0 0 1-3.74-1.37z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul class="footer-links">
+        <li><a href="#services">Window Cleaning</a></li>
+        <li><a href="#services">Trash Can Cleaning</a></li>
+        <li><a href="#services">Dryer Vent Cleaning</a></li>
+        <li><a href="#services">Mobile Car Detailing</a></li>
+        <li><a href="#gallery">Project Gallery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <p class="footer-contact-item">Firefighter &amp; Veteran Owned</p>
+      <p class="footer-contact-item"><a href="tel:8647729000">864-772-9000</a></p>
+      <p class="footer-contact-item">Spartanburg, SC<br>&amp; Surrounding Areas</p>
+      <p class="footer-contact-item" style="margin-top:1rem;">
+        <a href="#" class="btn-primary" style="font-size:0.82rem;padding:0.55rem 1.1rem;" onclick="openQuoteModal(event)">Get a Free Quote</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Firehouse Shine. All rights reserved.</span>
+    <span>Spartanburg, SC · Firefighter &amp; Veteran Owned</span>
+  </div>
+</footer>
+
+<!-- QUOTE MODAL -->
+<div class="quote-modal-overlay" id="quoteModal" aria-modal="true" role="dialog">
+  <div class="quote-modal">
+    <button class="quote-modal-close" id="quoteModalClose" aria-label="Close">✕</button>
+
+    <div id="qmForm">
+      <h3 class="headline">Get a <span>Free Quote</span></h3>
+      <p class="quote-modal-sub">Fill out the form and we'll send you a confirmation right away — our team will follow up within 24 hours.</p>
+
+      <div class="qm-field">
+        <label for="qm-name">Full Name *</label>
+        <input type="text" id="qm-name" placeholder="John Smith" required />
+      </div>
+      <div class="qm-field">
+        <label for="qm-email">Email Address *</label>
+        <input type="email" id="qm-email" placeholder="john@example.com" required />
+      </div>
+      <div class="qm-field">
+        <label for="qm-phone">Phone Number *</label>
+        <input type="tel" id="qm-phone" placeholder="(864) 555-0100" required />
+      </div>
+
+      <div class="qm-field">
+        <label for="qm-desc">What Are You Interested In? *</label>
+        <textarea id="qm-desc" placeholder="e.g. Mobile detailing, dryer vent cleaning, window cleaning, trash can cleaning…" required></textarea>
+      </div>
+      <button type="button" class="qm-submit" id="qmSubmitBtn" onclick="handleQuoteSubmit()">📋 Submit My Quote Request</button>
+      <p id="qm-error" style="color:var(--red);font-size:0.82rem;text-align:center;margin-top:0.6rem;display:none;"></p>
+      <p class="qm-note">Your info is never shared. We'll reach out within 24 hours.</p>
+    </div>
+
+    <div class="qm-success" id="qmSuccess">
+      <div class="qm-success-icon">✅</div>
+      <h4>Preview Mode</h4>
+      <p id="qmSuccessMsg">Thanks for reaching out! A confirmation has been sent to you and our team will follow up within 24 hours.<br><br>In the meantime, feel free to call or text <strong>864-772-9000</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY PHONE -->
+<a href="tel:8647729000" class="sticky-phone">📞 864-772-9000</a>
+
+<script>
+
+  // ── NAV SHADOW ON SCROLL ──
+  const mainNav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    mainNav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ── MOBILE MENU ──
+  const navHamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function closeMobileMenu() {
+    navHamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  navHamburger.addEventListener('click', function() {
+    const isOpen = mobileMenu.classList.toggle('open');
+    navHamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // ── QUOTE MODAL ──
+  const quoteModal = document.getElementById('quoteModal');
+  const quoteModalClose = document.getElementById('quoteModalClose');
+
+  function openQuoteModal(e) {
+    if (e) e.preventDefault();
+    quoteModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeQuoteModal() {
+    quoteModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleQuoteSubmit() {
+    var name    = document.getElementById('qm-name').value.trim();
+    var email   = document.getElementById('qm-email').value.trim();
+    var phone   = document.getElementById('qm-phone').value.trim();
+    var desc    = document.getElementById('qm-desc').value.trim();
+    var errEl   = document.getElementById('qm-error');
+    var btn     = document.getElementById('qmSubmitBtn');
+
+    errEl.style.display = 'none';
+
+    if (!name || !email || !phone || !desc) {
+      errEl.textContent = 'Please fill in all required fields.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    btn.textContent = '⏳ Sending…';
+    btn.disabled = true;
+
+    // Static preview build: no mail backend on this host.
+    document.getElementById('qmForm').style.display = 'none';
+    var successMsg = document.getElementById('qmSuccessMsg');
+    successMsg.innerHTML = '<strong>Preview only</strong> — this is a design preview, so the form is not connected to email yet. On the live site this sends the request straight to Firehouse Shine.<br><br>Thanks, <strong>' + name + '</strong>! To reach us right now, call or text <strong>864-772-9000</strong>.';
+    document.getElementById('qmSuccess').style.display = 'block';
+  }
+
+  quoteModalClose.addEventListener('click', closeQuoteModal);
+  quoteModal.addEventListener('click', function(e) {
+    if (e.target === quoteModal) closeQuoteModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeQuoteModal();
+  });
+
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── STICKY PHONE HIDE ON CONTACT ──
+  const contactSection = document.getElementById('contact');
+  const stickyPhone = document.querySelector('.sticky-phone');
+  const stickyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      stickyPhone.style.opacity = e.isIntersecting ? '0' : '1';
+      stickyPhone.style.pointerEvents = e.isIntersecting ? 'none' : 'auto';
+    });
+  }, { threshold: 0.5 });
+  stickyObserver.observe(contactSection);
+
+  // ── LIGHTBOX GALLERY ──
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = galleryItems[currentIndex].dataset.img;
+    lightbox.classList.add('active');
+  }
+  function closeLightbox() { lightbox.classList.remove('active'); }
+  function showNext() {
+    currentIndex = (currentIndex + 1) % galleryItems.length;
+    lightboxImg.src = galleryItems[currentIndex].dataset.img;
+  }
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    lightboxImg.src = galleryItems[currentIndex].dataset.img;
+  }
+
+  galleryItems.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxNext.addEventListener('click', showNext);
+  lightboxPrev.addEventListener('click', showPrev);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+
+  // ── BEFORE / AFTER SLIDER (tabbed, per-tab aspect ratio so images show FULL) ──
+  const baFrame = document.getElementById('baFrame');
+  const baRange = document.getElementById('baRange');
+  const baBeforeImg = document.getElementById('baBeforeImg');
+  const baAfterImg = document.getElementById('baAfterImg');
+  const baCaptionTitle = document.getElementById('baCaptionTitle');
+  const baCaptionNote = document.getElementById('baCaptionNote');
+  const baTabDuct = document.getElementById('baTabDuct');
+  const baTabCar = document.getElementById('baTabCar');
+
+  const baData = {
+    duct: {
+      before: 'images/duct-before.jpg', beforeAlt: 'Lint-clogged dryer vent before Firehouse Shine cleaning',
+      after: 'images/duct-after.jpg', afterAlt: 'Cleared dryer vent duct after Firehouse Shine cleaning',
+      title: 'Dryer Vent Cleaning', note: 'Actual before & after from a Firehouse Shine job — drag to compare',
+      ratio: '1 / 1'
+    },
+    car: {
+      before: 'images/traverse-dirty.jpg', beforeAlt: 'Dirty, grimy vehicle before Firehouse Shine service',
+      after: 'images/traverse-clean.jpg', afterAlt: 'Detailed, clean vehicle after Firehouse Shine service',
+      title: 'Mobile Detailing', note: 'See the kind of transformation we deliver — drag to compare',
+      ratio: '4 / 3'
+    }
+  };
+
+  function updateBaPos(v) { baFrame.style.setProperty('--pos', v + '%'); }
+
+  function switchBaTab(key) {
+    const d = baData[key];
+    baBeforeImg.src = d.before; baBeforeImg.alt = d.beforeAlt;
+    baAfterImg.src = d.after; baAfterImg.alt = d.afterAlt;
+    baCaptionTitle.textContent = d.title;
+    baCaptionNote.textContent = d.note;
+    baFrame.style.aspectRatio = d.ratio;
+    baTabDuct.classList.toggle('active', key === 'duct');
+    baTabCar.classList.toggle('active', key === 'car');
+    baRange.value = 50;
+    updateBaPos(50);
+  }
+
+  updateBaPos(baRange.value);
+  baRange.addEventListener('input', function() { updateBaPos(this.value); });
+
+</script>
+</body>
+</html>
