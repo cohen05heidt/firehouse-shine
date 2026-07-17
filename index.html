@@ -691,9 +691,8 @@
   <div class="ba-tabs reveal" style="transition-delay:0.1s">
     <button class="ba-tab active" id="baTabDuct" onclick="switchBaTab('duct')">🔥 Dryer Vent Cleaning</button>
     <button class="ba-tab" id="baTabCar" onclick="switchBaTab('car')">🚗 Mobile Detailing</button>
-    <button class="ba-tab" id="baTabInterior" onclick="switchBaTab('interior')">🪑 Interior Detailing</button>
-    <button class="ba-tab" id="baTabTrash" onclick="switchBaTab('trash')">🗑️ Trash Can Cleaning</button>
-    <button class="ba-tab" id="baTabWindow" onclick="switchBaTab('window')">🪟 Window Cleaning</button>
+    <button class="ba-tab" id="baTabTrash" onclick="switchBaTab('trash')">Trash Can Cleaning</button>
+    <button class="ba-tab" id="baTabWindow" onclick="switchBaTab('window')">Window Cleaning</button>
   </div>
   <div class="ba-wrap reveal" style="transition-delay:0.15s">
     <div class="ba-monitor">
@@ -1100,12 +1099,6 @@
       title: 'Mobile Detailing', note: 'See the kind of transformation we deliver — drag to compare',
       ratio: '4 / 3'
     },
-    interior: {
-      before: 'https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/interior-mats.jpg', beforeAlt: 'Vehicle interior floor mats before full detail by Firehouse Shine',
-      after: 'https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/interior-rear.jpg', afterAlt: 'Spotless detailed rear interior seats by Firehouse Shine',
-      title: 'Interior Detailing', note: 'Deep cleaned seats, mats & surfaces — drag to compare',
-      ratio: '3 / 4'
-    },
     trash: {
       before: 'https://placehold.co/1200x900/17191c/D91A28?text=Before+Photo%0AUpload+yours+soon', beforeAlt: 'Dirty trash can before Firehouse Shine cleaning service',
       after: 'https://placehold.co/1200x900/17191c/FFB627?text=After+Photo%0AUpload+yours+soon', afterAlt: 'Sanitized sparkling trash can after Firehouse Shine cleaning service',
@@ -1166,7 +1159,6 @@
     baFrame.style.aspectRatio = d.ratio;
     baTabDuct.classList.toggle('active', key === 'duct');
     baTabCar.classList.toggle('active', key === 'car');
-    document.getElementById('baTabInterior').classList.toggle('active', key === 'interior');
     document.getElementById('baTabTrash').classList.toggle('active', key === 'trash');
     document.getElementById('baTabWindow').classList.toggle('active', key === 'window');
     baRange.value = 50;
