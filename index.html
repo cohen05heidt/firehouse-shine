@@ -83,30 +83,19 @@
 
     /* ── HERO ── */
     .hero { background: var(--black); padding: 138px 5% 0; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 78% 30%, rgba(217,26,40,0.28), transparent 60%), repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 42px); pointer-events: none; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.4rem; max-width: 1240px; margin: 0 auto; align-items: center; position: relative; z-index: 1; padding-bottom: 3rem; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(217,26,40,0.18), transparent 65%); pointer-events: none; z-index: 0; }
+    /* faded logo background */
+    .hero-logo-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -48%); width: min(780px, 94%); height: auto; opacity: 0.35; pointer-events: none; z-index: 0; user-select: none; clip-path: circle(47% at 50% 50%); }
+    .hero-grid { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 860px; margin: 0 auto; position: relative; z-index: 1; padding-bottom: 3rem; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; width: fit-content; background: rgba(217,26,40,0.16); border: 1px solid var(--red); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 600; padding: 0.45rem 1rem; margin-bottom: 1.5rem; clip-path: polygon(4% 0,100% 0,96% 100%,0 100%); }
-    .hero h1 { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(2.6rem, 5vw, 4.3rem); line-height: 0.98; color: var(--white); margin-bottom: 1.3rem; }
+    .hero h1 { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 0.98; color: var(--white); margin-bottom: 1.3rem; }
     .hero h1 .line-red { color: var(--red); }
-    .hero-sub { font-size: 1.1rem; line-height: 1.65; font-weight: 300; color: rgba(255,255,255,0.74); max-width: 500px; margin-bottom: 2rem; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
-    .hero-trust { display: flex; gap: 0; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 1.4rem; }
+    .hero-sub { font-size: 1.1rem; line-height: 1.65; font-weight: 300; color: rgba(255,255,255,0.74); max-width: 600px; margin: 0 auto 2rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.2rem; }
+    .hero-trust { display: flex; gap: 0; flex-wrap: wrap; justify-content: center; border-top: 1px solid var(--line); padding-top: 1.4rem; }
     .hero-trust div { display: flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.7); letter-spacing: 0.03em; text-transform: uppercase; padding-right: 1.3rem; margin-right: 1.3rem; border-right: 1px solid var(--line); }
     .hero-trust div:last-child { border-right: none; margin-right: 0; padding-right: 0; }
     .hero-trust span { color: var(--red); font-size: 1.05rem; }
-    /* hero image — shown FULL (natural aspect, never cropped) */
-    .hero-visual { position: relative; }
-    .hero-photo-frame { position: relative; border: 3px solid var(--red); background: var(--steel-2); box-shadow: 0 24px 60px rgba(0,0,0,0.55); clip-path: polygon(0 0, 100% 0, 100% 92%, 94% 100%, 0 100%); }
-    .hero-photo-frame img { width: 100%; height: auto; display: block; }
-    .hero-photo-badge { position: absolute; z-index: 3; right: -14px; top: -14px; background: var(--black); border: 3px solid var(--red); width: 104px; height: 104px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 10px 26px rgba(0,0,0,0.5); }
-    .hero-photo-badge .t1 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.5rem; letter-spacing: 0.1em; color: var(--ember-o); text-transform: uppercase; font-weight: 700; }
-    .hero-photo-badge .t2 { font-family: 'Anton', sans-serif; font-size: 0.9rem; color: var(--white); line-height: 1.05; margin: 0.2rem 0; text-transform: uppercase; }
-    .hero-photo-badge .t3 { color: var(--red); font-size: 0.62rem; letter-spacing: 0.1em; }
-    .hero-caption { position: absolute; left: 14px; bottom: 14px; z-index: 3; background: rgba(11,12,13,0.82); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 0.8rem; border-left: 3px solid var(--red); }
-    /* hero SVG "clean car" graphic */
-    .hero-svg { width: 100%; height: auto; display: block; }
-    .hero-svg .spark { transform-box: fill-box; transform-origin: center; animation: twinkle 2.6s ease-in-out infinite; }
-    .hero-svg .ember { transform-box: fill-box; transform-origin: center; animation: emberFloat 5.5s ease-in infinite; }
     @keyframes twinkle { 0%, 100% { opacity: 0.25; transform: scale(0.6) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
     @keyframes emberFloat { 0% { transform: translateY(6px); opacity: 0; } 25% { opacity: 0.95; } 100% { transform: translateY(-40px); opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { .hero-svg .spark, .hero-svg .ember { animation: none; } }
@@ -120,8 +109,7 @@
     .hero-strip .tx { font-family: 'Barlow Condensed', sans-serif; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
     @media (max-width: 900px) {
       .hero { padding-top: 130px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 2.4rem; padding-bottom: 2.4rem; }
-      .hero-visual { max-width: 520px; margin: 0 auto; width: 100%; }
+      .hero-grid { padding-bottom: 2.4rem; }
       .hero-strip { grid-template-columns: 1fr 1fr; }
       .hero-strip a:nth-child(2) { border-right: none; }
       .hero-strip a:nth-child(1), .hero-strip a:nth-child(2) { border-bottom: 1px solid var(--line); }
@@ -300,10 +288,10 @@
     .footer-brand-name { font-family: 'Anton', sans-serif; font-size: 1.3rem; color: var(--white); text-transform: uppercase; line-height: 1.2; }
     .footer-brand-name span { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; color: var(--ember-o); letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-top: 4px; }
     .footer-tagline { font-size: 0.85rem; line-height: 1.6; font-weight: 300; margin-bottom: 1.2rem; }
-    .footer-social { display: flex; gap: 0.6rem; }
-    .footer-social a { display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); width: 34px; height: 34px; border-radius: 50%; transition: background 0.2s, color 0.2s; }
-    .footer-social a svg { width: 16px; height: 16px; fill: currentColor; }
-    .footer-social a:hover { background: var(--red); color: white; }
+    .footer-social { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .footer-social a { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.88); padding: 0.6rem 1.3rem; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .footer-social a svg { width: 17px; height: 17px; fill: currentColor; flex-shrink: 0; }
+    .footer-social a:hover { background: var(--red); border-color: var(--red); color: white; }
     footer h5 { font-family: 'Anton', sans-serif; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
     .footer-links { list-style: none; }
     .footer-links li { margin-bottom: 0.55rem; }
@@ -406,7 +394,7 @@
 <!-- NAV -->
 <nav id="mainNav">
   <a href="#home" class="nav-brand">
-    <img src="images/logo.png" alt="Firehouse Shine logo" class="nav-logo-img"  width="500" height="500" />
+    <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/logo.png" alt="Firehouse Shine logo" class="nav-logo-img"  width="500" height="500" />
     <div class="nav-brand-text">Firehouse Shine<span>Professional Exterior Cleaning</span></div>
   </a>
   <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
@@ -433,6 +421,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <img class="hero-logo-bg" src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/logo.png" alt="" aria-hidden="true">
   <div class="hero-grid">
     <div class="hero-text">
       <div class="hero-eyebrow">🚒 Firefighter &amp; Veteran Owned</div>
@@ -448,7 +437,7 @@
         <div><span>★</span> 5-Star Service</div>
       </div>
     </div>
-    <div class="hero-visual">
+    <div class="hero-visual" style="display:none">
       <div class="hero-photo-frame">
         <svg class="hero-svg" viewBox="80 250 640 320" role="img" aria-label="Stylized graphic of a clean, freshly detailed shiny SUV with shine sparkles">
           <defs>
@@ -619,7 +608,7 @@
     </div>
     <div class="about-visual reveal" style="transition-delay:0.15s">
       <div class="about-photo-frame">
-        <img src="images/interior-rear.jpg" alt="Detailed clean interior rear seats by Firehouse Shine"  width="1400" height="1866" />
+        <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/interior-rear.jpg" alt="Detailed clean interior rear seats by Firehouse Shine"  width="1400" height="1866" />
       </div>
       <div class="about-photo-tag">Detailed To The Corner</div>
     </div>
@@ -707,8 +696,8 @@
     <div class="ba-monitor">
       <div class="ba-corner tl"></div><div class="ba-corner tr"></div><div class="ba-corner bl"></div><div class="ba-corner br"></div>
       <div class="ba-frame" id="baFrame">
-        <img src="images/duct-after.jpg" alt="Cleared dryer vent duct after Firehouse Shine cleaning" class="ba-img ba-after" id="baAfterImg"  width="1200" height="1600" />
-        <img src="images/duct-before.jpg" alt="Lint-clogged dryer vent before Firehouse Shine cleaning" class="ba-img ba-before" id="baBeforeImg"  width="1200" height="900" />
+        <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/duct-after.jpg" alt="Cleared dryer vent duct after Firehouse Shine cleaning" class="ba-img ba-after" id="baAfterImg"  width="1200" height="1600" />
+        <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/duct-before.jpg" alt="Lint-clogged dryer vent before Firehouse Shine cleaning" class="ba-img ba-before" id="baBeforeImg"  width="1200" height="900" />
         <div class="ba-divider"><div class="ba-handle">↔</div></div>
         <span class="ba-tag ba-tag-before">Before</span>
         <span class="ba-tag ba-tag-after">After</span>
@@ -747,8 +736,8 @@
   </div>
   <div class="video-grid">
     <div class="video-frame reveal">
-      <video controls preload="none" poster="images/video-poster.jpg">
-        <source src="video/firehouse-video.mp4" type="video/mp4" />
+      <video controls preload="none" poster="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/video-poster.jpg">
+        <source src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/video/firehouse-video.mp4" type="video/mp4" />
       </video>
     </div>
     <ul class="video-points reveal" style="transition-delay:0.15s">
@@ -771,19 +760,19 @@
   </div>
   <div class="gallery-masonry">
     <div class="gallery-item reveal" data-img="images/traverse-clean.jpg">
-      <img src="images/traverse-clean.jpg" alt="Fully detailed white SUV exterior" loading="lazy" width="1800" height="1350" />
+      <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/traverse-clean.jpg" alt="Fully detailed white SUV exterior" loading="lazy" width="1800" height="1350" />
       <div class="gallery-overlay"><span>Showroom Shine</span></div>
     </div>
     <div class="gallery-item reveal" data-img="images/action-shot.jpg" style="transition-delay:0.05s">
-      <img src="images/action-shot.jpg" alt="Firehouse Shine mobile detailing setup in the driveway" loading="lazy" width="1200" height="2134" />
+      <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/action-shot.jpg" alt="Firehouse Shine mobile detailing setup in the driveway" loading="lazy" width="1200" height="2134" />
       <div class="gallery-overlay"><span>Mobile, On Site</span></div>
     </div>
     <div class="gallery-item reveal" data-img="images/interior-mats.jpg" style="transition-delay:0.1s">
-      <img src="images/interior-mats.jpg" alt="Spotless vacuumed floor mats and interior" loading="lazy" width="1400" height="1866" />
+      <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/interior-mats.jpg" alt="Spotless vacuumed floor mats and interior" loading="lazy" width="1400" height="1866" />
       <div class="gallery-overlay"><span>Spotless Interior</span></div>
     </div>
     <div class="gallery-item reveal" data-img="images/interior-rear.jpg" style="transition-delay:0.15s">
-      <img src="images/interior-rear.jpg" alt="Detailed rear seats and door panels" loading="lazy" width="1400" height="1866" />
+      <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/interior-rear.jpg" alt="Detailed rear seats and door panels" loading="lazy" width="1400" height="1866" />
       <div class="gallery-overlay"><span>Every Seat, Every Corner</span></div>
     </div>
   </div>
@@ -862,16 +851,18 @@
   <div class="footer-grid">
     <div>
       <div class="footer-brand">
-        <img src="images/logo.png" alt="Firehouse Shine logo" class="footer-logo-img"  width="500" height="500" />
+        <img src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/logo.png" alt="Firehouse Shine logo" class="footer-logo-img"  width="500" height="500" />
         <div class="footer-brand-name">Firehouse Shine<span>Spartanburg, SC</span></div>
       </div>
       <p class="footer-tagline">Firefighter &amp; veteran owned mobile cleaning. Clean spaces. Healthy places. Safer families.</p>
       <div class="footer-social">
         <a href="https://www.facebook.com/FirehouseShine" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.83c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
+          Facebook
         </a>
         <a href="https://www.tiktok.com/@firehouse.shine" target="_blank" rel="noopener" aria-label="TikTok">
           <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-1.01-.88-1.6-2.15-1.6-3.55h-3.19v13.9c0 1.62-1.32 2.94-2.94 2.94a2.94 2.94 0 0 1-2.94-2.94 2.94 2.94 0 0 1 2.94-2.94c.3 0 .59.05.86.13V9.98a6.15 6.15 0 0 0-.86-.06A6.13 6.13 0 0 0 2.74 16.05 6.13 6.13 0 0 0 8.87 22.18a6.13 6.13 0 0 0 6.13-6.13V8.66a9.14 9.14 0 0 0 5.34 1.71V7.19a5.6 5.6 0 0 1-3.74-1.37z"/></svg>
+          TikTok
         </a>
       </div>
     </div>
@@ -1095,14 +1086,14 @@
 
   const baData = {
     duct: {
-      before: 'images/duct-before.jpg', beforeAlt: 'Lint-clogged dryer vent before Firehouse Shine cleaning',
-      after: 'images/duct-after.jpg', afterAlt: 'Cleared dryer vent duct after Firehouse Shine cleaning',
+      before: 'https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/duct-before.jpg', beforeAlt: 'Lint-clogged dryer vent before Firehouse Shine cleaning',
+      after: 'https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/duct-after.jpg', afterAlt: 'Cleared dryer vent duct after Firehouse Shine cleaning',
       title: 'Dryer Vent Cleaning', note: 'Actual before & after from a Firehouse Shine job — drag to compare',
       ratio: '1 / 1'
     },
     car: {
-      before: 'images/traverse-dirty.jpg', beforeAlt: 'Dirty, grimy vehicle before Firehouse Shine service',
-      after: 'images/traverse-clean.jpg', afterAlt: 'Detailed, clean vehicle after Firehouse Shine service',
+      before: 'https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/traverse-dirty.jpg', beforeAlt: 'Dirty, grimy vehicle before Firehouse Shine service',
+      after: 'https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/traverse-clean.jpg', afterAlt: 'Detailed, clean vehicle after Firehouse Shine service',
       title: 'Mobile Detailing', note: 'See the kind of transformation we deliver — drag to compare',
       ratio: '4 / 3'
     }
@@ -1165,4 +1156,3 @@
 </script>
 </body>
 </html>
-<!-- test push Fri Jul 17 17:00:51 EDT 2026 -->
