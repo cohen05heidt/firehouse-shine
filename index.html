@@ -101,7 +101,7 @@
     @media (prefers-reduced-motion: reduce) { .hero-svg .spark, .hero-svg .ember { animation: none; } }
 
     /* hero service strip */
-    .hero-strip { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+    .hero-strip { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
     .hero-strip a { display: flex; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.4rem 0.6rem; text-decoration: none; border-right: 1px solid var(--line); transition: background 0.2s; }
     .hero-strip a:last-child { border-right: none; }
     .hero-strip a:hover { background: rgba(217,26,40,0.12); }
@@ -113,6 +113,7 @@
       .hero-strip { grid-template-columns: 1fr 1fr; }
       .hero-strip a:nth-child(2) { border-right: none; }
       .hero-strip a:nth-child(1), .hero-strip a:nth-child(2) { border-bottom: 1px solid var(--line); }
+      .hero-strip a:nth-child(3) { grid-column: 1 / -1; }
     }
     @media (max-width: 480px) {
       .hero { padding-top: 118px; }
@@ -633,7 +634,7 @@
   <div class="about-stats reveal" style="transition-delay:0.25s">
     <div class="about-stat"><div class="n">100%</div><div class="l">Satisfaction Guaranteed</div></div>
     <div class="about-stat"><div class="n">100%</div><div class="l">Mobile — We Come To You</div></div>
-    <div class="about-stat"><div class="n">4</div><div class="l">Services, One Visit</div></div>
+    <div class="about-stat"><div class="n">3</div><div class="l">Services, One Visit</div></div>
   </div>
 </section>
 
@@ -816,7 +817,7 @@
       <span class="sc-desc">Satisfying transformations &amp; power-washing videos you can't stop watching.</span>
       <span class="sc-btn">Watch On TikTok</span>
     </a>
-    <a class="social-card reveal" href="https://www.facebook.com/FirehouseShine" target="_blank" rel="noopener" style="transition-delay:0.16s">
+    <a class="social-card reveal" href="https://www.facebook.com/share/1D7XFWZAdL/?mibextid=wwXIfr" target="_blank" rel="noopener" style="transition-delay:0.16s">
       <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.83c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
       <span class="sc-name">Facebook</span>
       <span class="sc-handle">Firehouse Shine</span>
@@ -874,7 +875,7 @@
         <li><span class="ic">👍</span> Satisfaction Guaranteed</li>
       </ul>
       <div class="social-row">
-        <a href="https://www.facebook.com/FirehouseShine" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://www.facebook.com/share/1D7XFWZAdL/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.83c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
         </a>
         <a href="https://www.tiktok.com/@firehouse.shine" target="_blank" rel="noopener" aria-label="TikTok">
@@ -898,7 +899,7 @@
       </div>
       <p class="footer-tagline">Firefighter &amp; veteran owned mobile cleaning. Clean spaces. Healthy places. Safer families.</p>
       <div class="footer-social">
-        <a href="https://www.facebook.com/FirehouseShine" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://www.facebook.com/share/1D7XFWZAdL/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.83c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
           Facebook
         </a>
