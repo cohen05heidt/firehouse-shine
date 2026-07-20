@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Firehouse Shine | Mobile Detailing, Window, Dryer Vent & Trash Can Cleaning — Spartanburg, SC</title>
-  <meta name="description" content="Firefighter & veteran owned mobile cleaning. Car detailing, window cleaning, dryer vent cleaning & trash can cleaning — we come to you. Serving Spartanburg, SC & surrounding areas." />
+  <meta name="description" content="Firefighter & veteran owned mobile cleaning. Car detailing, dryer vent cleaning & trash can cleaning — we come to you. Serving Spartanburg, SC & surrounding areas." />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -209,7 +209,9 @@
     .video-points { list-style: none; }
     .video-points li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.4rem; color: #3a3d42; font-size: 1rem; line-height: 1.55; font-weight: 300; }
     .video-points li .mark { flex-shrink: 0; width: 30px; height: 30px; background: var(--red); color: var(--white); font-family: 'Anton', sans-serif; font-size: 0.95rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    @media (max-width: 760px) { .video-grid { grid-template-columns: 1fr; } .video-frame { max-width: 340px; margin: 0 auto; } }
+    .video-extra-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 760px; margin: 2.5rem auto 0; }
+    .video-extra-row .video-frame { aspect-ratio: 3/4; }
+    @media (max-width: 760px) { .video-grid { grid-template-columns: 1fr; } .video-frame { max-width: 340px; margin: 0 auto; } .video-extra-row { grid-template-columns: 1fr; } }
 
     /* ── GALLERY (masonry — every image shown FULL, no crop) ── */
     .gallery { background: var(--steel); }
@@ -426,7 +428,7 @@
     <div class="hero-text">
       <div class="hero-eyebrow">🚒 Firefighter &amp; Veteran Owned</div>
       <h1>Clean Spaces.<br><span class="line-red">Healthy</span> Places.<br>Safer Families.</h1>
-      <p class="hero-sub">Professional mobile car detailing, window cleaning, dryer vent cleaning &amp; trash can sanitizing — brought straight to your driveway across Spartanburg, SC.</p>
+      <p class="hero-sub">Professional mobile car detailing, dryer vent cleaning &amp; trash can sanitizing — brought straight to your driveway across Spartanburg, SC.</p>
       <div class="hero-actions">
         <a href="#" class="btn-primary" onclick="openQuoteModal(event)">Get a Free Quote</a>
         <a href="#before-after" class="btn-secondary">See The Shine</a>
@@ -579,7 +581,7 @@
     </div>
   </div>
   <div class="hero-strip">
-    <a href="#services"><span class="ic">🪟</span><span class="tx">Window Cleaning</span></a>
+    <a href="#services"><span class="ic">🪟</span><span class="tx">Trash Can Cleaning</span></a>
     <a href="#services"><span class="ic">🗑️</span><span class="tx">Trash Can Cleaning</span></a>
     <a href="#services"><span class="ic">🔥</span><span class="tx">Dryer Vent Cleaning</span></a>
     <a href="#services"><span class="ic">🚗</span><span class="tx">Mobile Detailing</span></a>
@@ -633,7 +635,7 @@
   <div class="services-grid">
     <div class="svc-card reveal">
       <span class="svc-icon">🪟</span>
-      <h3>Window Cleaning</h3>
+      <h3>Trash Can Cleaning</h3>
       <ul>
         <li>Streak-free results</li>
         <li>Interior &amp; exterior</li>
@@ -692,7 +694,6 @@
     <button class="ba-tab active" id="baTabDuct" onclick="switchBaTab('duct')">🔥 Dryer Vent Cleaning</button>
     <button class="ba-tab" id="baTabCar" onclick="switchBaTab('car')">🚗 Mobile Detailing</button>
     <button class="ba-tab" id="baTabTrash" onclick="switchBaTab('trash')">Trash Can Cleaning</button>
-    <button class="ba-tab" id="baTabWindow" onclick="switchBaTab('window')">Window Cleaning</button>
   </div>
   <div class="ba-wrap reveal" style="transition-delay:0.15s">
     <div class="ba-monitor">
@@ -722,7 +723,7 @@
       <div class="promo-title">One Company. <span class="accent">One Visit.</span> Everything Clean.</div>
       <p class="promo-detail">
         Book a <strong>Dryer Vent Cleaning</strong> or <strong>Full Vehicle Detail</strong> and receive
-        <strong>20% OFF</strong> one additional service — choose Window Cleaning or Trash Can Cleaning.
+        <strong>20% OFF</strong> one additional service — choose Trash Can Cleaning or Trash Can Cleaning.
       </p>
       <a href="#" class="btn-primary" onclick="openQuoteModal(event)">Claim This Offer</a>
     </div>
@@ -747,6 +748,18 @@
       <li><span class="mark">2</span><span>Every detail covered, inside and out — floor mats, seats, door jambs, and every panel.</span></li>
       <li><span class="mark">3</span><span>No mess left behind. We clean it, we finish it, we haul nothing away but the dirt.</span></li>
     </ul>
+  </div>
+  <div class="video-extra-row reveal" style="transition-delay:0.2s">
+    <div class="video-frame">
+      <video controls preload="none">
+        <source src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/video/firehouse-video2.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="video-frame">
+      <video controls preload="none">
+        <source src="https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/video/firehouse-video3.mp4" type="video/mp4" />
+      </video>
+    </div>
   </div>
 </section>
 
@@ -871,7 +884,6 @@
     <div>
       <h5>Services</h5>
       <ul class="footer-links">
-        <li><a href="#services">Window Cleaning</a></li>
         <li><a href="#services">Trash Can Cleaning</a></li>
         <li><a href="#services">Dryer Vent Cleaning</a></li>
         <li><a href="#services">Mobile Car Detailing</a></li>
@@ -918,7 +930,7 @@
 
       <div class="qm-field">
         <label for="qm-desc">What Are You Interested In? *</label>
-        <textarea id="qm-desc" placeholder="e.g. Mobile detailing, dryer vent cleaning, window cleaning, trash can cleaning…" required></textarea>
+        <textarea id="qm-desc" placeholder="e.g. Mobile detailing, dryer vent cleaning, trash can cleaning…" required></textarea>
       </div>
       <button type="button" class="qm-submit" id="qmSubmitBtn" onclick="handleQuoteSubmit()">📋 Submit My Quote Request</button>
       <p id="qm-error" style="color:var(--red);font-size:0.82rem;text-align:center;margin-top:0.6rem;display:none;"></p>
@@ -1101,14 +1113,8 @@
     },
     trash: {
       before: 'https://placehold.co/1200x900/17191c/D91A28?text=Before+Photo%0AUpload+yours+soon', beforeAlt: 'Dirty trash can before Firehouse Shine cleaning service',
-      after: 'https://placehold.co/1200x900/17191c/FFB627?text=After+Photo%0AUpload+yours+soon', afterAlt: 'Sanitized sparkling trash can after Firehouse Shine cleaning service',
+      after: 'https://raw.githubusercontent.com/cohen05heidt/firehouse-shine/main/images/trash-can-after.jpg', afterAlt: 'Sanitized sparkling clean trash can interior after Firehouse Shine cleaning',
       title: 'Trash Can Cleaning', note: 'Sanitized, deodorized & looking brand new — drag to compare',
-      ratio: '4 / 3'
-    },
-    window: {
-      before: 'https://placehold.co/1200x900/17191c/D91A28?text=Before+Photo%0AUpload+yours+soon', beforeAlt: 'Grimy streaked windows before Firehouse Shine window cleaning',
-      after: 'https://placehold.co/1200x900/17191c/FFB627?text=After+Photo%0AUpload+yours+soon', afterAlt: 'Crystal clear windows after Firehouse Shine professional window cleaning',
-      title: 'Window Cleaning', note: 'Streak-free, crystal-clear results — drag to compare',
       ratio: '4 / 3'
     }
   };
@@ -1160,7 +1166,6 @@
     baTabDuct.classList.toggle('active', key === 'duct');
     baTabCar.classList.toggle('active', key === 'car');
     document.getElementById('baTabTrash').classList.toggle('active', key === 'trash');
-    document.getElementById('baTabWindow').classList.toggle('active', key === 'window');
     baRange.value = 50;
     updateBaPos(50);
   }
