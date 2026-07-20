@@ -190,18 +190,6 @@
     .ba-caption strong { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 1.15rem; color: var(--ink); display: block; margin-bottom: 0.3rem; }
     .ba-caption span { font-size: 0.85rem; color: var(--muted); }
 
-    /* ── PROMO ── */
-    .promo { background: var(--black); padding: 3.2rem 5%; position: relative; overflow: hidden; }
-    .promo::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 88% 12%, rgba(217,26,40,0.32), transparent 55%); }
-    .promo-flex { display: flex; align-items: center; gap: 2.4rem; max-width: 1000px; margin: 0 auto; flex-wrap: wrap; position: relative; z-index: 1; }
-    .promo-icon { font-size: 3.6rem; flex-shrink: 0; }
-    .promo-body { flex: 1; min-width: 280px; }
-    .promo-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; letter-spacing: 0.16em; color: var(--ember-o); text-transform: uppercase; margin-bottom: 0.3rem; font-weight: 700; }
-    .promo-title { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(1.7rem, 3.4vw, 2.5rem); color: var(--white); line-height: 1.08; margin-bottom: 0.7rem; }
-    .promo-title .accent { color: var(--red); }
-    .promo-detail { color: rgba(255,255,255,0.82); font-size: 0.98rem; line-height: 1.65; margin-bottom: 1.3rem; max-width: 560px; }
-    .promo-detail strong { color: var(--ember-o); }
-
     /* ── VIDEO (9:16 shown FULL via contain phone frame) ── */
     .video-section { background: var(--light); }
     .video-points { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; max-width: 1000px; margin: 0 auto 2.8rem; }
@@ -382,7 +370,6 @@
       section { padding: 50px 4%; }
       h2 { font-size: clamp(1.9rem, 8vw, 2.6rem); }
       .quote-modal { padding: 2rem 1.4rem 1.8rem; }
-      .promo-flex { text-align: center; justify-content: center; }
       .sticky-phone { font-size: 0.82rem; padding: 0.7rem 1.1rem; bottom: 1rem; right: 1rem; }
       .hero-trust div { border-right: none; margin-right: 0; padding-right: 0; margin-bottom: 0.5rem; }
     }
@@ -718,22 +705,6 @@
     </div>
   </div>
 </section>
-
-<!-- PROMO -->
-<div class="promo">
-  <div class="promo-flex">
-    <div class="promo-icon">💥</div>
-    <div class="promo-body">
-      <div class="promo-eyebrow">Bundle &amp; Save</div>
-      <div class="promo-title">One Company. <span class="accent">One Visit.</span> Everything Clean.</div>
-      <p class="promo-detail">
-        Book a <strong>Dryer Vent Cleaning</strong> or <strong>Full Vehicle Detail</strong> and receive
-        <strong>20% OFF</strong> one additional service — choose Trash Can Cleaning or Trash Can Cleaning.
-      </p>
-      <a href="#" class="btn-primary" onclick="openQuoteModal(event)">Claim This Offer</a>
-    </div>
-  </div>
-</div>
 
 <!-- VIDEO -->
 <section class="video-section">
